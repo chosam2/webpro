@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style>
+div {
+	height: 700px;
+	width: 300px;
+	border: 2px dotted lightblue;
+	overflow: scroll;
+}
+</style>
+<script>
+	function proc1() {
+
+		while (true) {
+
+			a = prompt("수를 입력하세요.");
+			var r = confirm("계속 하실려면 OK, 그만하실려면 Cancel");
+			//var a = confirm("수를 입력하세요!")
+			if (r == true) {
+				str = "";
+				str += "***** " + a + "단 *****<br>";
+				for (i = 1; i <= 9; i++) {
+					str += a + " * " + i + " = " + a * i + "<br>"
+				}
+			} else {
+				str += "최종결과값은?!"
+				break;
+			}
+			document.getElementById("result1").innerHTML += str;
+		}
+
+	}
+
+	function proc2() {
+		while (true) {
+
+			input = prompt("수를 입력하세요.");
+			
+			str = "입력한수 : ";
+			
+			if (input % 2 == 0) {
+				str += input + "은 짝수입니다.<br>";
+			} else {
+				str += input + "은 홀수입니다.<br>";
+			}
+
+			document.getElementById("result2").innerHTML += str;
+			res = confirm("계속 할래?");
+			if (!res) {
+				break;
+			}
+		}
+	}
+</script>
+</head>
+<body>
+	버튼을 클릭하면 수를 입력받아서 구구단 출력
+	<br> 계속할 것인지 말 것인지를 입력받아 수행한다.
+	<br>
+	<input type="button" value="확인" onclick="proc1()">
+	<br>
+	<br>
+	<div id="result1"></div>
+
+	<hr>
+	<br> 버튼을 클릭하면 수를 입력받아 짝수인지 홀수인지 출력 계속여부를 입력받아서 수행한다.
+	<br>
+	<input type="button" value="확인" onclick="proc2()">
+	<br>
+	<br>
+	<div id="result2"></div>
+
+</body>
+</html>

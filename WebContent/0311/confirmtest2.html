@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style>
+div {
+	height: 1000px;
+	width: 300px;
+	border: 2px dotted lightblue;
+	overflow : scroll;
+	
+}
+</style>
+<script>
+	function proc() {
+
+		while (true) {
+
+			a = prompt("수를 입력하세요.");
+			var r = confirm("계속 하실려면 OK, 그만하실려면 Cancel");
+			//var a = confirm("수를 입력하세요!")
+			if (r == true) {
+				str = "";
+				str += "***** " + a + "단 *****<br>";
+				for (i = 1; i <= 9; i++) {
+					str += a + " * " + i + " = " + a * i + "<br>"
+				}
+			} else {
+				str += "최종결과값은?!"
+				break;
+			}
+				document.getElementById("result").innerHTML += str;
+		}
+
+	}
+</script>
+</head>
+<body>
+	버튼을 클릭하면 수를 입력받아서 구구단 출력
+	<br> 계속할 것인지 말 것인지를 입력받아 수행한다. -> 짝수단만 출력
+	<br>
+	<input type="button" value="확인" onclick="proc()">
+	<br>
+	<br>
+	<div id="result"></div>
+
+</body>
+</html>

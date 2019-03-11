@@ -27,8 +27,9 @@ div {
 	}	
 	
 	function proc(a) {
-		su1 = parseInt(document.getElementById("su1").value);
+		su1 = parseInt(document.getElementById("su1").value); // 지역변수로 선언하면 오류남
 		su2 = parseInt(document.getElementById("su2").value);
+		
 		switch(a) {
 		case '+' :
 			//vadd = add(); // vadd에 add() return 값을 저장.

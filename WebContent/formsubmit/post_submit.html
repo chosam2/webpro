@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style>
+		/*	label은 inline 요소이다.
+			inline 요소에는 크기를 지정할 수 없다.
+			
+			인라인 요소를 그대로 유지(줄이 바뀌지 않는다.)
+			블럭요소 속성을 설정해준다.(크기를 조절 가능)
+		*/
+	label {
+		width : 100px;
+		height : 30px;
+		display : inline-block;
+	}
+	
+	img {
+		width : 200px;
+		height : 150px;
+	}
+	
+	input[type=image] {
+		width : 200px;
+		height : 150px;
+	}
+	
+	div {
+		width : 300px;
+		border : 2px solid blue;
+		margin-top : 30px; /*바깥쪽 여백 */
+		margin-bottom : 30px; 
+		padding : 20px; /* 안쪽 여백 */
+	}
+	
+</style>
+</head>
+
+<body>
+	<form action="posttest.jsp" method="post">
+	
+		<label for="name">이름 : </label> <!-- value는 초기값 -->
+		<input type="text" size = "10" name="name" value ="korea" id="name"><br> <!-- 인라인 요소 -->
+		
+		<label for="tel">전화번호 :</label>
+		<input type="tel" name="tel" id="tel"><br>
+		
+		<label for="email">이메일 :</label>
+		<input type="email" name="email" id="email"><br>
+		
+		<label for="pass">비밀번호 :</label>
+		<input type="password" name="pass" id="pass"><br>
+		
+		<input type="hidden" name="age" value="80">
+		
+		<!-- 둘의 차이점 -->
+		<img src="../images/java.png"><br>
+		<!-- input type="image"이거랑  input type="submit" 같은 기능 -->
+	
+		첨부파일 : 
+		<input type="file" name="file"><br>
+		<br>
+		<input type="radio" name="gender" value="f" checked>남자
+		<input type="radio" name="gender" value="w" checked>여자
+		<br><br>
+		가고 싶은 도시 및 나라 : 
+		<input type="checkbox" name="city" value="a" checked>프랑스
+		<input type="checkbox" name="city" value="b" checked>스위스
+		<input type="checkbox" name="city">네덜란드
+		<input type="checkbox" name="city">캐나다
+		<input type="checkbox" name="city">호주
+		<br><br>
+		
+		먹고싶은 음식 : 
+		<select name="food" multiple size="4"> 
+			<!-- multiple은 컨트롤키 누르면 다중선택, size 한번 보여주는 갯수 4개 -->
+			<option value="1">김치찌개</option>
+			<option value="2">삼겹살</option>
+			<option value="3">비빔밥</option>
+			<option value="4">된장</option>
+			<option value="5" selected>돈까스</option>
+			<option value="6">카레덮밥</option>
+			<option value="7">불고기</option>
+		</select>
+			<br><br>
+		
+		날짜 선택 : <input type="date" name="date"><br>
+
+		<div>
+			<input type="image" src="../images/java.png"> 
+			<!-- image, button, submit 모두 전송기능 있다. --><br><br>
+			<input type="submit" value="전송">
+			<button>전송버튼</button> <!-- submit기능 -->
+		</div>		
+		
+		<input type="reset" value="취소"><br><br>
+		<input type="button" value="확인" onclick="alert('10000원입니다')">
+	</form>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>position_static</title>
+<style>
+	pre{
+		border: 2px solid blue;
+		background: skyblue;
+		font-size : 1.5em;
+		width: 100%;
+	}
+	p, div{
+		width: 200px;
+		height: 100px;
+	}
+	#one{
+		background: yellow;
+		position: static;
+	}
+	#two{
+		background: pink; 
+	}
+	#three{
+		background: lightblue;
+	}
+	
+</style>
+</head>
+<body>
+<pre>
+	요소의 위치 설정
+	position : static;
+	블록 요소들은 박스처럼 상하로 쌓이게 되고 인라인 요소들은 한 줄에 차례대로 배치.
+	position의 기본요소 이다.
+</pre>
+	<p id = "one"> one block#1 </p>
+	<div id = "two"> two block#2 </div>
+	<p id = "three"> three block#3</p>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>position_relative</title>
+<style>
+	pre{
+		border: 2px solid blue;
+		background: skyblue;
+		font-size : 1.5em;
+		width: 100%;
+	}
+	p, div{
+		width: 200px;
+		height: 100px;
+	}
+	#one{
+		background: yellow;
+	}
+	#two{
+		background: pink; 
+		position: relative;
+		top: 30px;
+		left: 50px;
+	}
+	#three{
+		background: lightblue;
+	}
+	
+</style>
+</head>
+<body>
+<pre>
+	요소의 위치 설정
+	position : relative;
+	정상적인 위치에서 상대적으로 요소가 배치.
+</pre>
+	<p id = "one"> one block#1 </p>
+	<div id = "two"> two block#2 </div>
+	<p id = "three"> three block#3</p>
+</body>
+</html>

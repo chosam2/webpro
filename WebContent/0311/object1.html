@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	// 객체정의 -> 리터럴로 직접 정의가능.
+	var myCar = {	// 실행하자마자 생성됨. window.onload 없어도됨.
+
+		model : "BMW",
+		color : "white",	
+		speed : 100,
+		
+		brake : function() { 
+			this.speed = 0;
+		}, 
+		accel : function() {
+			this.speed = 150;			
+		}
+			
+	}
+	
+	function proc1() {
+		str = "";
+		str += "모델 : " + myCar.model + "<br>";
+		str += "색상 : " + myCar.color + "<br>";
+		str += "속도 : " + myCar.speed + "<br>";
+		
+		document.getElementById("result1").innerHTML += str; 
+	}
+	
+	docuemnt.write(myCar.model);
+	docuemnt.write(myCar.color);
+	docuemnt.write(myCar.speed);
+	
+</script>
+</head>
+<body>
+	버튼을 클릭하면 리터럴에 의한 객체를 생성한다.<br>
+	<button type="button" onclick="proc1()">객체생성</button>
+	<div id="result1"></div>
+</body>
+</html>

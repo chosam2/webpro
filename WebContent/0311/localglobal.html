@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	var sum = 0;
+
+	// 전역변수 선언 
+	/* 
+	function add(a,b) {
+		sum = a + b;
+	}
+	
+	function sub(a,b) {
+		sum = a - b;
+	}
+	
+	window.onload = function() {
+	
+	add(4,5);
+	document.write("add(4,5) = " + sum + "<br>");
+	
+	sub(10,6);
+	document.write("sub(10,6) = " + sum + "<br>");
+	
+	}
+	 */
+
+	// 지역변수 - 오류 발생
+	/* 
+	function add(a,b) {
+	var sum = a + b;
+	}
+	
+	function sub(a,b) {
+	var sum = a - b;
+	}
+	
+	window.onload = function() {
+	// sum 변수가 지역변수이기 때문에 오류가 발생
+	add(4,5);
+	document.write("add(4,5) = " + sum + "<br>"); // 에러
+	
+	sub(10,6);
+	document.write("sub(10,6) = " + sum + "<br>"); // 에러
+	}
+	 */
+
+	function add(a, b) {
+		var sum = a + b;
+		return sum;
+	}
+
+	function sub(a, b) {
+		var sub = a - b;
+		return sub;
+	}
+
+	window.onload = function() {
+		// sum 변수가 지역변수이기 때문에 직접 사용하면 오류가 발생.
+		// return받아서 사용하면 해결 가능.
+		sum = add(4, 5);
+		document.write("add(4,5) = " + sum + "<br>");
+
+		sub = sub(10, 6);
+		document.write("sub(10,6) = " + sub + "<br>");
+	}
+</script>
+</head>
+<body>
+
+</body>
+</html>

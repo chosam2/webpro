@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+	<style>
+		form {
+			border : 2px solid blue;
+			}
+	</style>
+</head>
+<body>
+
+	폼을 통하여 서버로 데이터를 보냅니다<br>
+	전송 버튼을 클리 클릭하면 form action에 지정된 페이지가 <br>
+	실행되고, 데이터를 보내는 방식은 get 또는 post가 있습니다.
+	get방식일때는 URL주소에 ?쿼리스트링으로 나타내고 <br>
+	post방식일때는 request header에 데이터를 숨겨서 보냅니다.<br>
+
+	<form action="gettest.jsp" method="get">
+	이&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;름 : <input type="text" name="name"><br>
+	주&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;소 : <input type="text" name="addr"><br>
+	연락처: <input type="text" name="phoneNum"><br>
+	비밀번호: <input type="password" = name="pass"><br>
+	<input type="submit" value="전송">
+	
+	</form>
+</body>
+</html>

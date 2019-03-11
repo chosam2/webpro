@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>layout 1</title>
+<style>
+	div {
+		margin 1px;
+	}
+	#header {
+		width : 100%;
+		height : 200px;
+		background: lightyellow;
+	}
+	
+	#nav {
+		width : 40%;
+		height : 500px;
+		background : lightpink;
+		float : left;
+	}
+	
+	#content {
+		width : 50%;
+		height : 500px;
+		background : lightgreen;
+		float : right;
+	}
+	
+	#art1 {
+		height : 225px;
+		border : 5px solid green;
+	}
+	
+	#art2 {
+		height : 225px;
+		border : 5px solid green;
+	}
+	
+	#footer {
+		width : 500px;
+		height : 200px;
+		background : lightblue;
+		clear : both; /* clear 하므로써 foonter이 밑으로 내려감 */
+	}
+	
+</style>
+</head>
+<body>
+	<div id="header"> <h2>머릿글</h2></div>
+	<div id="nav"> 메뉴 </div>
+	<div id="content">내용</div>
+		<div id="art1"></div>
+		<div id="art2"></div>
+	<div id="footer">바닥글</div>
+</body>
+</html>

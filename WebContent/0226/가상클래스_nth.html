@@ -2,75 +2,89 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>가상클래스_nth.html</title>
-<style>
-	table{
-		border : 2px solid crimson;
-		border-collapse: collapse;
-	}
+<title>Insert title here</title>
 
-	td{
-		width : 150px;
-		height: 50px;
-	}
+	<style>
+		table {
+			border : 2px solid crimson;
+			border-collapse: collapse;
+			text-align : center;
+		}
 	
-	/* tr:nth-child(2n){
-		background : lightblue;
-	}
-	
-	td:nth-child(2n+1){
-		background : lightgreen;
-	} */
-	
-	/* tr:nth-child(even){
-		background : lightgreen;
-	}
-	
-	td:nth-child(odd){
-		background : lightblue;
-	} */
-	
-	tr:nth-child(2n){background : lime;}
-	tr:nth-child(1){background : yellow;}
-	td { text-align : center;}
-	
-</style>
+		td {
+			width : 150px;
+			height : 50px;
+		}
+		
+		/* tr:nth-child(2n) {
+			background: lightblue;
+		}
+		
+		td:nth-child(2n+1) {
+			background: lightgreen;
+		} */
+		
+		/* 
+		tr:nth-child(even) { // 수식으로 써도되고 even, odd로도 표현가능 
+			background: lightblue;
+		}
+		
+		td:nth-child(odd) { // tr을 기준으로 td가 적용됨
+			background: lightgreen;
+		}
+		 */
+		
+		tr:nth-child(1) {
+			background: lightyellow;
+		}
+		
+		tr:nth-child(even) {
+			background: lightblue;
+		}
+		
+	</style>
 </head>
 <body>
-	
-	<table border="1">
+	<table border="1"> <!-- border안해주면 style 적용해도 소요없음. -->
 		<tr>
 			<td>이름</td>
-			<td>전화번호</td>
 			<td>성별</td>
-			<td>이메일</td>
+			<td>나이</td>
+			<td>주소</td>
 		</tr>
 		
 		<tr>
-			<td>홍길동</td>
-			<td>010-0000-0000</td>
+			<td>유형욱</td>
 			<td>남자</td>
-			<td>asdv@adsv.asdv</td>
+			<td>25</td>
+			<td>대전광역시 동구 홍도동</td>
 		</tr>
 		
 		<tr>
-			<td>홍길동</td>
-			<td>010-0000-0000</td>
-			<td>남자</td>
-			<td>asdv@adsv.asdv</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
 		</tr>
 		
 		<tr>
-			<td>홍길동</td>
-			<td>010-0000-0000</td>
-			<td>남자</td>
-			<td>asdv@adsv.asdv</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
 		</tr>
+		
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		
 	</table>
 	
 	<br>
-	
-	<table border="1">
+	<table border="1"> <!-- border안해주면 style 적용해도 소요없음. -->
 		<tr>
 			<td></td>
 			<td></td>
@@ -98,7 +112,8 @@
 			<td></td>
 			<td></td>
 		</tr>
+		
 	</table>
-	
+	<br>
 </body>
 </html>

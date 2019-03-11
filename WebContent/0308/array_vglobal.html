@@ -4,67 +4,78 @@
 <meta charset="UTF-8">
 <title>array_vglobal</title>
 <link type="text/css" rel="stylesheet" href="../css/mycss.css">
+
 <script>
-//a1, b1 변수는 var이 있거나 없거나 전역변수이다.
-//a1, b1 변수는 모든 함수에서 접근하고 사용할 수 있다.
-	var a1 = 100;
-	var b1 = 200; //전역변수
+
+//함수 밖에서 var로 선언하면 전역변수임.
+
+// a1, b1 변수는 var이 있거나 없거나 전역변수이다.
+// a1, b1 변수는 모든 함수에서 접근하고 사용할 수 있다.
+var a1 = 100; 
+var b1 = 200;
+
+	function proc1() {
+		arr = ["개나리", "진달래", "무궁화", "수선화", "벚꽃"];
+		result = document.getElementById("result1");
+		a1 = a1 + 100;
+		print(); // 함수호출 -> 파라미터로 result(id값)를 보냄.
+		// arr과 result가 전역변수이고  모든 함수내에서 사용가능
+		// 호출되는 print함수에서도 arr과 result라는 변수에 접근하고 사용할 수 있다.
+		
+	}	
 	
-	function print() { //a: 매개변수, 함수호출시 파라미터로 부터 받는 값을 받는 변수.
+	function proc2() {
+		
+		arr = new Array("사과", "바나나", "딸기", "복숭아", "참외", "수박");
+		result = document.getElementById("result2");
+		b1 = b1 + 200;
+		print(); // 함수호출 -> 파라미터로 result(id값)를 보냄.
+	}
+	
+	function proc3() { 
+		
+		arr = new Array();
+		arr[0] = "방콕";
+		arr[1] = "베트남";
+		arr[2] = "싱가폴"; 
+		arr[3] = "프랑스"; 
+		result = document.getElementById("result3");
+		a1 += 100;
+		b1 += 100;
+		print();
+		
+		
+	}
+	
+	function print() {
+		
 		str = "";
-		for(i=0; i<arr.length; i++){
+		for(i = 0; i < arr.length; i++) {
 			str += i + "번째 : " + arr[i] + "<br>";
 		}
 		result.innerHTML = str;
-		result.innerHTML += "a1 = " + a1 + " b1 = " + b1; 
-	}
-	
-	function proc1() {
-		arr = ["개나리", "진달래", "무궁화", "수선화", "벚꽃"];
-		result = document.getElementById('result1');
-		a1 = a1+100;
-		print(); //함수호출, 파라미터로 result를 보낸다.
-		//arr과 result변수가 전역변수 이고 모든 함수내에서 사용가능.
-		//호출되는 print함수에서도 arr과 result라는 변수에 접근하고 사용할 수 있다.
-	}
-	function proc2() {
-		arr = new Array("사과", "바나나", "딸기", "복숭아", "참외", "수박");
-	 	result = document.getElementById('result2');
-		b1 = b1+200;
-		print();
-	}
-	
-	function proc3() {
-		arr = new Array()
-		arr[0] = "대한민국";
-		arr[1] = "중국";
-		arr[2] = "일본";
-		arr[3] = "러시아";
-		result = document.getElementById('result3');
-		a1 += 100; b1 += 100;
-		print();
+		result.innerHTML += "a1 = " +  a1 + "  b1 = " + b1;
 	}
 </script>
 </head>
 <body>
 <pre>
-전역변수
-function 안에서 선언한 변수중 변수앞에 var 없이 선언된 변수.
-function이 코딩되기 전에 선언한 변수. - var이 있거나 없거나 상관없이 전역변수이다.
-전역변수는 모든 영역에서 접근하고 사용가능하다.
+	전역변수
+		- function 안에서 선언한 변수 중 변수앞에 var 없이 선언된 변수
+		- function이 코딩되기 전에 선언한 변수 
+		전역변수는 모든 영역에서 접근하고 사용가능하다.
 </pre>
-<br><br>
-
-<button onclick="proc1()">array1-리터널생성</button><br>
-<div id="result1"></div>
-<hr><br>
-
-<button onclick="proc2()">array2-리터널생성</button><br>
-<div id="result2"></div>
-<hr><br>
-
-<button onclick="proc3()">array3-리터널생성</button><br>
-<div id="result3"></div>
-<hr><br>
+	<br><br>
+	<button onclick="proc1()">array1 - 리터럴생성</button><br>
+	<div id="result1"></div>
+	<hr><br>
+	<br><br>
+	<button onclick="proc2()">array3 - 객체생성</button><br>
+	<div id="result2"></div>
+	<hr><br>
+	<br><br>
+	<button onclick="proc3()">array3 - 리터럴생성</button><br>
+	<div id="result3"></div>
+	<hr><br>
 </body>
 </html>

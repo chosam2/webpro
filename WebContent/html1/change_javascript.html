@@ -1,0 +1,18 @@
+<html>
+<head>
+	<title> Javascript 랜덤 색 만들기</title>
+</head>
+<body>
+	<div onload = "Onload()" id = "randomClass">
+		Javascript 랜덤 색 만들기
+	</div>
+	<button onclick = "myFunction()">Click</button>
+</body>
+<script type = "text/javascript">
+	function myFunction() {
+		var colorCode = "#" + Math.round(Math.random() * 0xffffff).toString(16);
+		
+		document.getElementById("randomClass").style.color = colorCode;
+		}
+</script>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link type="text/css" rel="stylesheet" href="../css/mycss.css">
+
+<script>
+	function proc1() {
+		
+		arr = ["개나리", "진달래", "무궁화", "수선화", "벚꽃"];
+		result = document.getElementById("result1");
+		print(result); // 함수호출 -> 파라미터로 result(id값)를 보냄.
+	}	
+	
+	function proc2() {
+		
+		arr = new Array("개나리", "진달래", "무궁화", "수선화", "벚꽃");
+		result = document.getElementById("result2");
+		print(result); // 함수호출 -> 파라미터로 result(id값)를 보냄.
+	}
+	
+	function proc3() { 
+		
+		arr = new Array();
+		arr[0] = "개나리";
+		arr[1] = "진달래";
+		arr[2] = "무궁화"; 
+		arr[3] = "수선화"; 
+		arr[4] = "벚꽃";
+		result = document.getElementById("result3");
+		print(result);
+	}
+	
+	function print(param) { // param : 매개변수 -> 함수호출시 파라미터로 넘겨주는 값을 받는 변수
+		
+		str = "";
+		for(i = 0; i < arr.length; i++) {
+			str += i + "번째 : " + arr[i] + "<br>";
+		}
+		param.innerHTML = str;  // document.getElementById("result?").innerHTML과 같음
+	}
+</script>
+</head>
+<body>
+<pre>
+	Array배열
+	1. 리터럴의 직접생성
+		arr = ["개나리", "진달래", "무궁화", "수선화", "벚꽃"]
+	2. Array객체로 생성
+		arr = new Array("개나리", "진달래", "무궁화", "수선화", "벚꽃")
+		arr = new Array();
+		arr[0] = "" 
+		arr[1]= ""
+		arr = new Array(5)
+</pre>
+<br><br>
+<button onclick="proc1()">array1 - 리터럴생성</button><br>
+<div id="result1"></div>
+<hr><br>
+<br><br>
+<button onclick="proc2()">array3 - 객체생성</button><br>
+<div id="result2"></div>
+<hr><br>
+<br><br>
+<button onclick="proc3()">array3 - 리터럴생성</button><br>
+<div id="result3"></div>
+<hr><br>
+</body>
+</html>

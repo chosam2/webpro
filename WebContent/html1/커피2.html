@@ -1,19 +1,22 @@
 <html>
 	<head>
-		<title>커피2
-		</title>
+		<meta charset = "UTF-8">
+		
+		<title>커피2</title>
+		
 		<style>
-			p, ul, ol, dl{
-				font-size : 20px;
-			}
+			p	{
+				front-size : 20px;
+				}
 			
-			pre{
+			pre {
 				width : 500px;
 				font-size : 1.5em;
 				background : lightgray;
-				border : 5px solid blue;
-			}
-			img{
+				border : 5px dotted blue;	<!-- solid dotted 등등..-->
+				}
+				
+			img {
 				width : 100px;
 				height : 100px;
 			}
@@ -23,74 +26,50 @@
 	
 	<body>
 	<!-- block 요소 : 한줄 전체를 차지하는 요소
-			- p, pre, h1 ~ h6, hr, ul, ol
-		inline 요소 : 글자 크기 만큼만 차지하는 요소 
-			- a, img, em, strong
+			p, pre, h1, hr, ul, ol
+		 inline 요소 : 글자 길이 만큼만 차지하는 요소
+			a, img, em, strong 
 	-->
-		
-		<pre>
- &lt;a&gt; 태그 : 페이지 이동을 위한 태그
- href 속성에 페이지 주소를 설정한다.</pre>
-		
-	<hr>
-		
-		<h1>Web 커피 메뉴</h1>
-		 <h3>&lt;p&gt; 태그속에 &lt;a&gt; 태그</h3>
-		<p> <a href="아메리카노.html">아메리카노</a> </p>
-		<p> <a href="카페라떼.html">카페라떼</a> </p>
-		<p> <a href="카푸치노.html">카푸치노</a> </p>
+<pre>
+	&lt;a&gt태그 : 페이지 이동을 위한 태그
+	href 속성에 페이지 주소를 설정한다.
+</pre>
+	<h1> Web 커피 메뉴 </h1>	
+		<p> <a href="americano.html"> 아메리카노 </a> </p>
+		<img src="images/americano.jpg" style="width:500; height:500;">
+		<p> <a href="cafelatte.html"> 카페라떼 </a></p>
+		<img src="images/cafelatte.jpg">
+		<p> <a href="hotChoco.html" > 핫초코 </a></p>
 		<br>
-	<hr color='blue'>
+		<hr color = 'red'>
+		<!-- 
+			외부 스타일 : 별도의 파일(.css)로 저장되는 스타일
+			내부 스타일 : <head>태그사이에 <style></style>
+			인라인스타일 : 태그속에 직접 style를 설정
+			
+			중복되는 스타일이 있다면 인라인스타일이 가장 먼저 우선실행되고
+		-->
 		
-		<h1>Web Tea 메뉴</h1>
-		 <h3>&lt;ul&gt; : 번호 없는 리스트</h3>
+		<h1> Web Tea 메뉴 </h1>
+			<h3> ul : 번호 없는 리스트</h3>
 		<ul>
 			<li>그린티</li>
 			<li>자몽티</li>
-			<li>오렌지자몽티</li>
 			<li>허브티</li>
 		</ul>
-		
-	<hr color = 'red'>
-		
-		 <h3>&lt;ol&gt; : 번호 있는 리스트</h3>
+		<hr color = 'yellow'>
+			<h3> ol : 번호 있는 리스트</h3>
 		<ol>
-			<li> <a href="아메리카노.html">아메리카노</a> </li>
-			<li> <a href="카페라떼.html">카페라떼</a> </li>
-			<li> <a href="카푸치노.html">카푸치노</a> </li>
+			<li>아메리카노</li>
+			<li>카페라떼</li>
+			<li>핫초코</li>
 		</ol>
 		
-	<hr color = 'red'>
-	
-	<!--
-		외부스타일 : 별도의 (.css)확장자 파일로 저장되는 스타일.
-		내부스타일 : <head>태그 사이에 <style></style>
-		인라인스타일 : 태그속에 직접 style 설정.
-		
-		중복되는 스타일이 있다면 인라인스타일이 가장 먼저 우선실행되고,
-		내부스타일 → 외부스타일 순으로 실행된다.
-	-->
-	
-		<h3>정의리스트</h3>
-		<dl>
-			<dt>에스프레소</dt>
-			<dd>- 커피의 기본, 커피의 원액이다.</dd>
-			<img src = "images/커피1.jpg" width="500" height="500">
-			
-			<dt>아메리카노</dt>
-			<dd>- 에스프레소에 물을 넣은 것</dd>
-			<a href = "아메리카노.html"> 
-				<img src = "images/아메리카노.jpg" style="width:500; height:500;"> </a>
-			
-			<dt>카페라떼</dt>
-			<dd>- 커피에 우유를 섞은 것</dd>
-			<a href = "카페라떼.html"> 
-				<img src = "images/카페라떼.jpg"> </a>
-		</dl>
-		
-	<hr>
-		<a href="http://www.google.com" target="_blank">구글 방문</a>
-		
+		<h3> ol속에 a태그 </h3>
+			<ol>
+				<li> <a href = "americano.html"> 아메리카노 </li>
+				<li> <a href = "cafelatte.html"> 카페라떼</li>
+				<li> <a href = "hotChoco.html"> 핫초코</li>
+			</ol>
 	</body>
 </html>
-

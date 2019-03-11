@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	
+	<style>
+	input[type=image] {
+		width : 50px;
+		height : 50px;
+		border : 1px solid blue;
+		vertical-align : middle;
+	}
+	
+	input[type=button], input[type=submit], button { /* button에만 줘도 type=button에 적용 되는가?*/
+		height : 35px;
+	}
+	
+	pre {
+		font-size : 1.3em;
+		border : 1px dotted blue;
+		width : auto;
+		height : 200px;
+	}
+	
+	span {
+		color : red;
+	}
+	
+	</style>
+	
+	<script>
+		function proc() {
+			// 변수 선언
+			/* var a = 10; 생략가능*/
+			// 값을 대입
+			a = 10;
+			b = 42.195;
+			
+			// 계산
+			c = a + b;
+
+			// 출력
+			alert(c);
+		}
+	</script>
+</head>
+<body>
+	<pre>
+	함수 : 기능을 수행 <br>
+	내장함수 : alert('메세지 내용'), getElementById('id이름')<br>
+	사용자함수 : 함수를 직접 만들어 정의 한다.<br>
+	사용자 함수가 정의되었으면 호출 하여 사용한다.<br>
+		<span>함수정의 : function 함수이름(변수) { }</span><br>
+	<br><br>
+	</pre>
+	
+	<form action="formsend.jsp" method="post">
+		<input type="text" name="name"><br>
+		<input type="password" name="pass"><br>
+		<input type="email" name="email"><br>
+		
+
+		<p>전송하기</p>
+		<input type="submit" value="submit전송"> <!-- 전송기능 -->
+		<input type="image" src="../images/java.png"> <!-- 전송기능 -->
+		<button>button??</button> <!-- 전송기능 -->
+		
+		<p>전송 안됨</p>
+		<button type="button" onclick="alert('Hello')">button</button> <!-- 전송 불가능-->
+		<input type="button" onclick="proc()" value="button"> <!-- 전송 불가능 -->
+		<!-- ""안에 ''쓰기 -->
+	</form>
+
+</body>
+</html>

@@ -2,35 +2,33 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>prompt_add</title>
+<title>Insert title here</title>
 <script>
-	window.onload = function(){
-		 
-		input = prompt("첫번째 숫자를 입력하세요.");
+	window.onload = function() {
+		
+		input = prompt("숫자1를 입력하세요");
 		x = parseInt(input);
-		input = prompt("두번째 숫자를 입력하세요.");
+		input = prompt("숫자2를 입력하세요");
 		y = parseInt(input);
 		sum = x + y;
-	
+		
+		document.getElementById("sp1").textContent = x;
+		document.getElementById("sp2").textContent = y;
+		document.getElementById("sp3").textContent = sum;
+
 		/* 
-		input1 = prompt("첫번째 숫자를 입력하세요.");
-		input2 = prompt("두번째 숫자를 입력하세요.");
-		sum = input1 + input2; //문자열의 결합.
-		alert(sum); 
-		*/
-		
-		document.getElementById('sp1').textContent = x;
-		document.getElementById('sp2').textContent = y;
-		document.getElementById('sp3').textContent = sum;
-		
+		input1 = prompt("숫자1를 입력하세요");
+		input2 = prompt("숫자2를 입력하세요");
+		sum = input1 + input2;
+		alert(sum);
+		 */
 	}
 </script>
 </head>
 <body>
 	<h1>덧셈</h1>
-	첫번째 입력한 값 : <span id="sp1"></span><br>
-	두번째 입력한 값 : <span id="sp2"></span><br>
-	결과 : <span id="sp3"></span><br>
+	입력한 값1 : <span id="sp1"></span><br>
+	입력한 값2 : <span id="sp2"></span><br>
+	결과 :  	  <span id="sp3"></span><br>
 </body>
 </html>
-

@@ -2,30 +2,33 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>input_add</title>
+<title>Insert title here</title>
 <script>
-	function runpro() {
-		//id가 num1, num2요소에 접근해서 입력한 값을 가져온다.
-		x = document.getElementById('num1').value;
-		y = document.getElementById('num2').value;
-		x=parseInt(x);
-		y=parseInt(y);
+	/* window.onload = function() {
 		
+	} */
+	
+	function runpro() {
+		// id가 su1, su2요소에 접근해서 입력한 값을 가져온다.
+		x = document.getElementById("su1").value;
+		x = parseInt(x); // parseInt()안해주면  String임
+		y = document.getElementById("su2").value;
+		y = parseInt(y);
 		sum = x + y;
 		
-		document.getElementById('sum').value = sum; //input type="text" 일때는 textContent가 아니라 value 사용.
+		document.getElementById("sum").value = sum;
 	}
 </script>
 </head>
 <body>
-	<h1>뎃셈하기</h1>
+	<h1>덧셈 하기</h1>
 	<br>
-	첫번째 수 : <input type = "text" id="num1"><br>
-	두번째 수 : <input type = "text" id="num2"><br>
+	수1 : <input type="text" id="su1"><br>
+	수2 : <input type="text" id="su2"><br>
 	
 	<br>
 	<button id="run" onclick="runpro()">실행</button>
 	<br><br>
-	결과 : <input type = "text" id="sum"><br>
+	결과 : <input type="text" id="sum"><br>
 </body>
 </html>

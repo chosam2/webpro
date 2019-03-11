@@ -1,0 +1,78 @@
+<html>
+	<head>
+	<meta charset = "UTF-8">
+		<title>텍스트 단락</title>
+		<style>
+			img {
+				width : 30%;
+				height : 30%;
+			}
+		
+			p {
+				background : yellow;
+			}
+			
+			sub {
+				color : blue;
+			}
+			
+			sup {
+				color : red;
+			}
+		
+			strong {
+				color : green;
+				font-size : 1.5en; <!-- en배수라는 뜻 -->
+			}
+			
+			span {
+				background : #ff1234;
+				font-weight : bold;
+				
+			}
+			
+			
+		</style>
+	
+	</head>
+	
+	<!-- 
+	br vs p 태그 차이점
+	-->
+	
+	<body>
+	<h1> br 태그를 이용한 강제 줄바꿈 </h1>
+	커피( 음차: 珈琲(가배), coffee) 또는 커피차(coffee beverage)는 <br>
+	따뜻한 물과 차가운물 또는 증기로 우려내어 마시는,<br> 
+	커피나무 열매의 씨(커피콩)를 볶아 가루로 낸 것을<br>
+	쓴맛이 나는 짙은 갈색의 음료이다.<br>
+	
+	<h1> p 태그를 이용한 강제 줄바꿈 </h1>
+	<p>커피( 음차: 珈琲(가배), coffee) 또는 커피차(coffee beverage)는 </p>
+	<p>커피나무 열매의 씨(커피콩)를 볶아 가루로 낸 것을 </p>
+	<p>따뜻한 물과 차가운물 또는 증기로 우려내어 마시는, </p>
+	<p>쓴맛이 나는 짙은 갈색의 음료이다. </p>
+	
+	<h1> pre 태그를 이용한 강제 줄바꿈 </h1>
+	<pre>
+	커피( 음차: 珈琲(가배), coffee) 또는 커피차(coffee beverage)는
+	커피나무 열매의 씨(커피콩)를 볶아 가루로 낸 것을
+	따뜻한 물과 차가운물 또는 증기로 우려내어 마시는,
+	쓴맛이 나는 짙은 갈색의 음료이다.
+	</pre>
+	
+	<!-- 일부문자에 style를 지정하기 위해서는 span태그를 이용 -->
+	<span>커피콩</span>은 주로 <sub>적도지방 라틴 아메리카, 동남아시아, 
+	남 아시아 그리고 아프리카</sub>의 70여개국에서 재배되는 
+	커피나무에서 얻을 수 있다. 녹색 커피콩(로스팅 전의 콩, 생두)은 
+	세계에서 가장 많이 교역되는 농산물 중의 하나이다.
+	커피는 그 <strong>카페인 성분</strong>으로 인해 사람을 각성시키는 
+	효과를 가지고 있다.
+	커피는 <sup>세계에서 가장 많이 소비되는 음료</sup> 중의 하나이다.
+	1년에 세계적으로 약 6천억 잔이 소비된다.<br>
+	
+	
+	<a href = "https://ko.wikipedia.org/wiki/%EC%BB%A4%ED%94%BC">커피란?</a>
+	<img src = images\java_coffee.png>
+	</body>
+</html>

@@ -4,53 +4,52 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
-<script>
-	function calc(){
+	<script>
+		function calc() {
+			
+			//변수 선언
+			var a;
+			var b;
+			
+			//변수에 값 대입
+			// a =  폼의 id가 in1인 곳에서 입력한 값을 가져와서 대입.
+			// b =  폼의 id가 in2인 곳에서 입력한 값을 가져와서 대입.
+			a = document.getElementById("in1").value
+			b = document.getElementById("in2").value
+			
+			// 계산
+			c = a * b;
+			
+			// 출력
+			alert(c);
+		}
 		
-		//변수선언
-		var a;
-		var b;
+		function colorChange(c) {
+			alert(c);
+			document.body.style.background = c;
+		}
 		
-		//값을대입
-		//a = //폼에서 id가 in1인 곳에서 입력한 값을 가져와서 대입한다.
-		//b = //폼에서 id가 in2인 곳에서 입력한 값을 가져와서 대입한다.
-		a = document.getElementById("in1").value;//document도 스크립트에서 이미 정해져 있는 객체
-		b = document.getElementById("in2").value;
-		
-		
-		//계산
-		c = a * b;
-		
-		//출력
-		alert(c);
-		
-	}
-	function colorChange(c){
-		//alert(c);
-		document.body.style.background = c;
-	}
-</script>
-
-<style>
-	body{
-		background : pink;
-	}
-</style>
-
+	
+	</script>
+	
+	<style>
+		body {
+			background: pink;
+		}
+	</style>
 </head>
 <body>
-	<from>
-		<input id = "in1" type = "text" name = "su1" value="100"><br>
-		<input id = "in2" type = "text" name = "su2" value="1"><br>
+	<form>
+		<input id="in1" type="text" name="su1" value="100"><br>
+		<input id="in2" type="text" name="su2" value="1"><br>
 		
-		<input type = "button" onclick="calc()" value = "확인">
-		<button onclick = "calc()">전송</button> <!-- form 안에서는 전송기능. form이 없을때에는 전송기능 하지않느다. -->
+		<input type="button" value="확인" onclick="calc()" >
+		<button onclick="calc()">전송</button>
 		<br>
-		<hr color='red'>
-		<input type = "radio" name = "color" value="blue" onclick = "colorChange('blue')">파랑
-		<input type = "radio" name = "color" value="green" onclick = "colorChange('green')">초록
-		<hr>
-	</from>
-
+		<hr color='crimson'> <!-- 수평선 -->
+		
+		<input type='radio' name="color" value="blue" onclick="colorChange('blue')">파랑	<!-- name을 같은걸로 줘야 하나만 선택됨 -->
+		<input type='radio' name="color" value="pink" onclick="colorChange('pink')">핑크
+	</form>
 </body>
 </html>

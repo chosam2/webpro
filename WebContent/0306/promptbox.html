@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<script>
+
+window.onload = function() { 
+	
+	var value = prompt("나이를 입력하세요: ");
+	
+	//prompt 함수에 의해 return되는 값(value)은 String 타입니다.
+	
+	/* 
+	if(value > 20) {
+		alert("축하합니다")
+		document.write("나이는 " + value)
+	} else {
+		alert("더 크세요~")
+	} 
+	*/
+	
+	document.getElementById("sp1").textContent = value;
+	
+	if(value == null) {
+		alert("취소버튼을 누르셨습니다.");
+		document.getElementById("sp1").textContent = "NULL"
+		document.getElementById("sp2").textContent = "NULL"
+	} else if(value == "") {
+		document.getElementById("sp1").textContent = "입력 안함."
+		document.getElementById("sp2").textContent = "입력이 올바르지 않습니다."		
+	} else if(value > 20){
+		document.getElementById("sp2").textContent = "축하합니다"
+	} else {
+		document.getElementById("sp2").textContent = "더 크세요~"
+	}
+}
+	
+</script>
+<body>
+
+<h1>입력하기</h1>
+
+입력한 값 : <sapn id="sp1"></sapn><br>
+조건 :  20보다 큰지 작은지 판단<br>
+결과 : <sapn id="sp2"></sapn><br>
+</body>
+</html>

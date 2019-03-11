@@ -1,0 +1,47 @@
+<html>
+	<style>
+	img {
+		width : 100px;
+		height : 100px;
+		}
+		p{
+			width : 50%;
+			height : 50px;
+			color : red;
+			font-size : 30px;
+			background : yellow;
+			text-align : center;
+		}
+		
+	</style>
+	
+	<!-- 
+	change() 라는 함수를 만들어서 script가 실행
+	Elements : 요소라고도 함. tag.
+	
+	-->
+	<script>
+		function change() {
+			
+			p1 = document.getElementsByTagName('p')[0]; //[0]의 의미는 0번째 p태그 의미
+			
+			// 랜덤한 수, 난수, 불규칙한 수
+			// 색상지정 : blue, red, pink
+			// rgb(128, 255, 90)
+			a = parseInt(Math.random() * 255);
+			b = parseInt(Math.random() * 255);
+			c = parseInt(Math.random() * 255);
+			
+			p1.style.color = 'rgb(' + a + ',' + b + ',' + c + ')';
+			p1.style.background = 'rgb(' + c + ',' + b + ',' + a + ')';
+		}
+	</script>
+	
+	<body>
+		<p onclick="change()">Hello World~~</p>
+		<br/>
+		안녕하세요...<br>
+		<br>
+		<img src="images\Koala.jpg">
+	</body>
+</html>

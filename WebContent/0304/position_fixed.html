@@ -2,55 +2,48 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>position_fixed</title>
+<title>position_fixed.html</title>
+
 <style>
-	pre{
-		border: 2px solid blue;
-		background: skyblue;
-		font-size : 1.5em;
-		width: 100%;
-	}
-	p, div{
-		width: 200px;
-		height: 100px;
+	p, div {
+		width : 200px;
+		height : 100px;
 		border : 1px solid red;
 	}
-	#one{
-		background: yellow;
+	#one {
+		background : yellow;
 	}
-	#two{
-		background: pink; 
-		position: fixed;
-		top: 30px;
-		right: 10px;
+	#two {
+		background : pink;
+		position : fixed;
+		top : 30px;
+		/* left : 50px; */
+		right : 30px; 
 	}
-	.three{
-		background: lightblue;
+	#three {
+		background : lightblue;
 	}
 	
 </style>
 </head>
 <body>
-<pre>
-	요소의 위치 설정
-	position : fixed;
-	브라우저 윈도우에 상대적으로 요소의 위치를 잡는 것.
-	스크롤바를 움직여도 block#2의 위치는 고정되어 있다.
-</pre>
-	<p id = "one"> one block#1 </p>
-	<div id = "two"> two block#2 </div>
-	<p class="three"> three block#3</p>
-	<p class="three"> three block#3</p>
-	<p class="three"> three block#3</p>
-	<p class="three"> three block#3</p>
-	<p class="three"> three block#3</p>
-	<p class="three"> three block#3</p>
-	<p class="three"> three block#3</p>
-	<p class="three"> three block#3</p>
-	<p class="three"> three block#3</p>
-	<p class="three"> three block#3</p>
-	<p class="three"> three block#3</p>
-	
-	
+	<pre>
+		요소의 위치 설정
+		position : fixed
+		차례대로, 순서대로 배치 한 위치에서 다시 배치
+		
+	</pre>
+
+	<p id="one">one block #1</p>
+	<div id="two">two block #2</div>
+	<p id="three">three block #3</p>
+	<p id="three_a">three block #3</p>
+	<p id="three_b">three block #3</p>
+	<p id="three_c">three block #3</p>
+	<p id="three_d">three block #3</p>
+	<p id="three_e">three block #3</p>
+	<p id="three_f">three block #3</p>
+	<p id="three_g">three block #3</p>
+	<p id="three_h">three block #3</p>
 </body>
 </html>

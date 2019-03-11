@@ -2,40 +2,36 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>input_type.html</title>
-
-<script>
-	function change(){
-		//각 요소에서 입력 한 값들을 가져오기 - id를 이용한다.
-		color = document.getElementById("color").value;
-		email = document.getElementById("email").value;
-		tel = document.getElementById("tel").value;
-		
-		//alert(color + email + tel);
-		
-		document.body.style.background = color;
-		
-	}
-</script>
+<title>Insert title here</title>
+	<script>
+		function change() {
+			// 각 요소에서 입력 한 값을 가져오기 id를 이용
+			color = document.getElementById("color").value;
+			email = document.getElementById("email").value;
+			tel = document.getElementById("tel").value;
+			
+			document.body.style.background = color;
+		}
+	</script>
 
 </head>
 <body>
-   <form>
-        date: <input type="date"><br>
-        datetime: <input type="datetime"><br>
+	<form>
+        date: <input id="id" type="date"><br>
+        datetime: <input id="datetime" type="datetime"><br>
         datetime-local: <input type="datetime-local"><br>
         month: <input type="month"><br>
         time: <input type="time"><br>
         week: <input type="week"><br>
-        color: <input type="color" id="color" name="color"><br>
-        email: <input type="email" id="email" name="email"><br>
-        tel: <input type="tel" id="tel" name="tel"><br>
+        color: <input id="color" type="color"><br>
+        email: <input id="email" type="email"><br>
+        tel: <input id="tel" type="tel" name=""><br> <!-- name은 서버로, id는 함수만들 때 사용 -->
         search: <input type="search"><br>
-        range: <input type="range"><br> <!-- 브라우저 마다 달라서 잘 사용하지 않는다. -->
+        range: <input type="range"><br>
         number: <input type="number"><br>
         url: <input type="url"><br>
         <input type="button" value="확인" onclick="change()">  
     </form>
+	
 </body>
-
 </html>

@@ -2,66 +2,72 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>documentwrite</title>
+<title>Insert title here</title>
 <style>
-	div{
-		width: 300px;
-		height: 50px;
-		border: 2px dotted red;
+	div {
+		width : 300px;
+		height : 50px;
+		border : 2px dotted red;
 	}
-	pre{
-		font-size: large;
-		border: 1px solid blue;
-	}
+	
+	
 </style>
+
 <script>
 
-	//body를 실행하고 문서가 만들어진 후에 스크립트가 실행되도록
-	//자동으로 호출하는 함수를 정의한다.
-	window.onload = function(){
+// body를 실행하고 문서가 만들어진 후에 스크립트가 실행되도록
+// 자동으로 호출하는 함수를 정의한다.
+window.onload = function() {
+	
+	//div에 접근해서 글자색을 1초마다 한번씩 변경
+	window.setInterval(function() {
+		res = document.getElementById("result");
 		
-		//div에 접근해서 글자색을 1초마다 한번씩 변경
-		window.setInterval(function(){
-			res = document.getElementById('result');
-			
-			cr = parseInt(Math.random()*256);
-			cg = parseInt(Math.random()*256);
-			cb = parseInt(Math.random()*256);
-			
-			res.style.color = 'rgb(' + cr + ',' + cg + ',' + cb + ')'
-		}, 1000);
+		cr = parseInt(Math.random() * 256);
+		cg = parseInt(Math.random() * 256);
+		cb = parseInt(Math.random() * 256);
+		
+		res.style.color = 'rgb(' + cr + ',' + cg + ',' + cb + ')';
+		res.style.fontSize = '1.5em';
+		
+	}, 1000);
 	
-	}
-	
+}
+
 	function run() {
+		
 		today = new Date();
-		// document.write(today);
-		document.getElementById('date').innerHTML = today;
+		//document.write(today);
+		document.getElementById("date").innerHTML = today;
 	}
-	
+
+
 </script>
+
 </head>
 <body>
 <pre>
-  window.onload = function(){ } : 기존형식유지, body먼저 실행후 스크립트 실행을 위해 사용
-  window.setInterval(function(){ },1000} : {}안의 스크립트를 1초동안 반복해서 수행.
-  
-  div에 Hello 문자를 출력 하는 방법 
-	- innerHTML = " " : 출력하고자 하는 문자에 html태그가 포함 되어 있는 경우
-	- textContent = " " : 출력하고자 하는 문자에 html태그가 포함 되어있지 않은 경우 
+	window.onload = function(){ }
+	스크립트보다 바디가 먼저 실행되게하고 그 뒤에 스크립트를 실행되게 하기위해서 사용
+	(원래는 위에서 아래로 실행되기때문에 script -> body가 실행됨)
+	*선생님 설명
+	: 스크립트가 위에서 코딩되고 body가 밑에서 코딩되었을때 스크립트가 먼저 실행된다.
+		그때 body 요소에 접근할 수 없어서 에러가 발생한다.
+	: body가 먼저 실행되어 document를 만들고 document가 window에 
+		로드되었을때 script를 실행하게 만들때 필요한 함수
 		
-  요소에 접근하는 방법
-	document.getElementById('')
-	document.getElementsByName('')
-	document.getElementsByTagName('')
-	document.getElementsByClassName('')
-
-  document.write() : 다큐먼트에 글을쓰기위해 사용.
-  document.getElementById('date').innerHTML = today; : 기존 다큐먼트를 유지하면서 지정된 div에 글을 쓰기위해 사용.
+	document.write();
+	기존에 만들어진 document가 없어지기 때문에 사용할 때 주의
+	-> document.write() 대신 getElementById("date")이런식으로 접근하면 괜찮음
+	
+	* 선생님 설명
+	
+	
 </pre>
 	<div id="result">Hello</div>
 	<br>
 	<button id="but" onclick="run()">실행</button>
 	<div id="date"></div>
+	
 </body>
 </html>

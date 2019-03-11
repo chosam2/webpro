@@ -2,15 +2,20 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>textarea.html</title>
+<title>Insert title here</title>
+	<script>
+		function introduce() {
+			alert(c);
+			document.getElementById("id1").value
+		}
+	</script>
 </head>
 <body>
-	이름 : <input type = "text" name = "name"><br>
-	자기소개 : <br>
-	<textarea rows="10" cols="50"></textarea><br>
+	이름 : <input id="id1" type="text" name="name"><br>
+	자기소개 :<br>
+	<textarea rows="10" cols="50"></textarea>
 	
-	
-	
-	<input type = "button" value = "확인">
+	<br>
+	<input type="button" value="확인" onclick="introduce()">	
 </body>
 </html>

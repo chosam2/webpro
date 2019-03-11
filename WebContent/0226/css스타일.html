@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="../css/mycss">
+	
+	<style>
+		/* p {
+			font-weight : bold;		
+		} */
+		
+		pre:nth-child(9) { /* p태그 다음에 나오기때문 부모(body)로부터 9번째가 pre로 인식*/
+			background: lightpink;
+		}
+		
+		p:nth-child(1) { /* p태그의 부모(body)를 기준으로 태그 설정 */
+			font-weight : bold;
+		}
+		
+		p:nth-child(2) {
+			color : lightgreen;
+		}
+		
+		p:nth-child(3) {
+			font-weight : bold;
+			font-style : italic;
+			font-size : 30px;
+			font-family : serif;
+		}
+		
+		p:nth-child(4) {
+			font-weight : bold;
+			font-style : italic;
+			font-size : 30px;
+			font-family : sans-serif;
+		}
+
+		p:nth-child(5) {
+			font-weight : bold;
+			font-style : italic;
+			font-size : 30px;
+			font-family : monospace;
+			color : skyblue;
+		}
+		
+		p:nth-child(6) {
+			font-family : serif;
+		}
+		
+		p:nth-child(7) {
+			color : lightpink;
+		}  
+		
+	</style>
+
+</head>
+<body>
+	<p>1.무궁화 꽃이 피었습니다.</p>
+	<p>2.태극기가 <strong>바람</strong>에 펄럭입니다.</p>
+	<p>3.흰눈이 <em>보슬보슬</em> 내려옵니다.</p>
+	<p>4.흰눈이 <em>보슬보슬</em> 내려옵니다.</p>
+	<p>5.흰눈이 <em>보슬보슬</em> 내려옵니다.</p>
+	<p>6.코끼리 한마리가 거미줄에 걸렸네.</p>
+	<p>7.세리프 글씨체</p>
+	
+	<br>
+	<pre>
+		font: font-style font-variant font-weightfont-size/line-height 
+		font-family|caption|icon|menu|message-box|small-caption|status-bar|initial|inherit;
+	</pre>
+	<br><br>
+	
+	<pre>
+		가상클래스
+		부모(body)를 기준으로 자식의 p태그를 선택한다.
+		
+		p:nth-child(1) {
+			font-weight : bold;
+		}
+		
+		p:nth-child(odd) {
+			
+		}
+		
+		p:nth-child(even) {
+		
+		}
+	</pre>
+	
+	
+</body>
+</html>

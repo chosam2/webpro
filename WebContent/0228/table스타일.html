@@ -2,71 +2,61 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>table스타일</title>
+<title>Insert title here</title>
+
 <style>
-	pre{
-		background: yellow;
-		border : 2px solid blue;
-		font: 1em strong;
-	}
-	table{
-		margin-left:40px;
-		border-spacing: 15px; 
+	
+	table {
+		margin-left : 50px;
+		border-spacing: 10px;
 		empty-cells: show;
 	}
-	caption{
+	
+	/* td에 주면 한 칸당 크기부여 */
+	td {
+		height : 70px;
+		width : 200px;
+		text-align : center;
+	}
+	
+	/* tr에 주면 크기를 나눠서 부여함 */
+	tr {
+		
+	}
+	
+	th {
+		height : 50px;
+		background: crimson;
+	}
+	
+	caption {
 		caption-side: bottom;
 		font-size: 40px;
 	}
-	tr:nth-child(even){
-		background : yellow;
+	
+	tr:nth-child(even) {
+		background : lightyellow;
 	}
-	.tt{
+	
+	.tt {
 		background: lightgreen;
 	}
-	th{
-		height: 50px;
-		background: crimson;
-	}
-	td{
-		width: 200px;
-		height: 50px;
-		text-align: center;
-	}
+	
 </style>
+
 </head>
 <body>
+
 <pre>
-&lt;style&gt;
-	table{
-		margin-left:40px;
-		border-spacing: 15px; 
-		empty-cells: show; //hide : 숨기기 
-	} //테이블 스타일 지정
-	caption{
-		caption-side: bottom; //제목 아래로.
-		font-size: 40px;
-	}
-	tr:nth-child(even){
-		background : yellow;
-	}//:nth-child(even) : 짝수, odd : 홀수
-	.tt{
-		background: lightgreen;
-	}//class사용.
-	th{
-		height: 50px;
-		background: crimson;
-	}
-	td{
-		width: 200px;
-		height: 50px;
-		text-align: center;
-	}
-&lt;/style&gt;
+	caption : 표의 제목
+	th : attribute
+	th : column
 </pre>
-<hr color="blue">
+	
 	<table border="1">
+		
 		<caption>VIP 리스트</caption>
+	
 		<tr>
 			<th>하나</th>
 			<th>둘</th>
@@ -78,24 +68,25 @@
 			<td>2</td>
 			<td>3</td>
 		</tr>
-		
-		<tr class='tt'>
+
+		<tr class="tt">
 			<td>4</td>
 			<td>5</td>
 			<td></td>
 		</tr>
-		
 		<tr>
 			<td>1</td>
 			<td>2</td>
 			<td>3</td>
 		</tr>
-		
-		<tr class='tt'>
+
+		<tr class="tt">
 			<td>4</td>
 			<td>5</td>
 			<td></td>
 		</tr>
+
 	</table>
+
 </body>
 </html>

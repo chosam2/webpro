@@ -2,67 +2,73 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>가상클래스</title>
-<link rel="stylesheet" type="text/css" href="../css/mycss.css">
+<title>Insert title here</title>
+	
+	<link rel="stylesheet" type="text/css" href="../css/mycss.css">
+
 <style>
-	a{
-		font-size: 1.3em;
-	}
-	
-	/* 처음 만들어 실행, 한번도 방문 안 한 상태 */
-	a:link{
-		color : green;
+	a {
+		font-size : 1.3em;
 		text-decoration: none;
+	}	
+	
+	/* 처음 만들어 실행, 한번도 방문 안 한 상태. */ 
+	/* 원래는 파랑색*/
+	a:link {
+		color : green;	
 	}
 	
-	/* 방문 했던 적이 있는 상태 */
-	a:visited{
+	/* 방문했던 적이 있는 상태 */
+	a:visited {
 		color : red;
+		text-decoration: overline;
 	}
-	/* 마우스가 올라와 있을때 */
-	a:hover{
-		text-decoration: underline;
+	
+	/* 마우스가 올라와 있을 때 */
+	a:hover {
 		color : blue;
 		font-size : 1.5em;
+		text-decoration: underline;
 	}
 	
 	/* a요소가 눌려지는 상태 */
-	a:active{
+	a:active {
 		color : yellow;
-		background: pink;
+		background : cyan;
 	}
-	input:focus{
+	
+	input:focus { 	/*  text창에 마우스 클릭 했을때 */
 		border : 2px solid crimson;
-		background : yellow;
+		background : whitegreen;
 	}
+	
 </style>
 </head>
 <body>
-<pre>
-	가상 클래스는 요소의 특정 상태에 따라 스타일을 정의한다.
-	특정 상태란 : 
-	- 마우스가 올라와 있을때.
-	- 링크를 방문 했을때와 방문하지 않았을때.
-	- 포커스가 들어와 있을때.
+	<pre>
+		가상 클래스는 요소의 특정 상태에 따라 스타일을 정의한다.
+		특정 상태란?
+		 - 마우스가 올라와 있을 때
+		 - 링크를 방문 했을 때와 방문하지 않았을 때
+		 - 포커스가 들어와 있을 때
+		 
+		 클래스가 존재하지 않지만, 가상클래스를 임의로 지정해서 선택한다.
+		 가상 클래스는 ' . ' 대신 ' : ' 을 사용한다.
+		 가상 클래스 이름은 css표준에 의해 미리 지정되어 있기 때문에
+		 이름을 바꿀 수 없다. 
+	</pre>
 	
-	클래스가 존재 하지 않지만, 가상클래스를 임의로 지정해서 선택한다.
-	가상클래스는 '.' 대신에 ':' 을 사용한다.
-	가상클래스 이름은 css표준에 의해서 미리 지정되어 있기 때문에 
-	이름을 바꿀수 없다.
-</pre>
-
-<br>
-<br>
-
-<a href = "http://www.w3schools.com">w3schools</a>
-&nbsp; &nbsp;
-<a href = "http://www.daum.net">다음</a>
-&nbsp; &nbsp;
-<a href = "http://www.nate.com">네이트</a>
-
-<br><br>
-
-<input type = "text" name = "name">
-
+	<br>
+	<br>
+	<a href="https://www.w3schools.com" target="_blank">w3schools</a>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href="https://www.daum.net" target="_blank">다음</a>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href="https://www.nate.com" target="_blank">네이트</a>
+	<br><br>
+	
+	<input type="text" id="input"><br>
+	
+	
 </body>
 </html>

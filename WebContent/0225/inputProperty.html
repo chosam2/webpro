@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+	<script>
+		function input() {
+			// 각 input 요소에서 입력한 값 가져오기
+			var c = document.getElementById("id").value
+			alert(c);
+		}
+	
+	</script>
+</head>
+<body>
+	<form action="inputProperty.jsp" method="post">
+		<input type="text" name="id" id="id" autofocus><br> <!-- 파란색으로 강조됨 -->
+		<input type="text" name="name" id="name" value="고정값" readonly><br> <!-- 수정불가 -->
+		<input type="text" name="tel" id="tel" 
+			 pattern="[0-9]{3}-[0-9]{3,4}-[0-9]{4}"
+			 placeholder="010-1234-5678"><br>
+		<input type="text" name="email" id="email" required placeholder="필수입력!"><br> <!-- 필수항목 -->
+		
+		<input type="button" value="확인" onclick="input()"><br>
+		<input type="submit" value="전송"><br>
+		
+	</form>
+
+</body>
+</html>

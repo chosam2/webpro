@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	img {
+		width : 100px;
+		height : 100px;
+		
+		position : relative;
+		left : 0px; /* 0,0으로 감 */
+		top : 0px;
+		z-index : -1;
+	}
+	
+	hr {
+		position : relative;
+		top : 100px;
+	}
+	
+	span {
+		position : relative;
+		top : 150px;
+	}
+</style>
+</head>
+<body>
+	<img src="../images/always9.jpg">
+	<p> 자바 꽃이 피었습니다.</p>
+	<hr color="red">
+	<span>z-index : 요소들이 겹쳐져서 보여질때
+	맨 위에서 보여지도록 하기위해서 z-index를 지정
+	z-index는 0을 기준으로 -값은 밑으로 숫자가 클수록 위로 올라온다.
+	</span>
+</body>
+</html>

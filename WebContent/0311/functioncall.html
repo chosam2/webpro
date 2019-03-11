@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+div {
+	width: 300px;
+	height: 50px;
+	border: 1px solid crimson;
+}
+</style>
+
+<script>
+	var su1 = 0;
+	var su2 = 0;
+
+	function proc() {
+		su1 = parseInt(document.getElementById("su1").value);
+		su2 = parseInt(document.getElementById("su2").value);
+	}
+
+	function procadd() {
+		/* 
+		su1 = document.getElementById("su1").value;
+		su2 = document.getElementById("su2").value;
+		*/
+		proc();
+		
+		add = su1 + su2;
+		document.getElementById("result").innerHTML = add;
+	}
+
+	function procsub() {
+		su1 = document.getElementById("su1").value;
+		su2 = document.getElementById("su2").value;
+		
+		sub = parseInt(su1) - parseInt(su2);
+		document.getElementById("result").innerHTML = sub;
+	}
+
+	function procmulti() {
+		su1 = document.getElementById("su1").value;
+		su2 = document.getElementById("su2").value;
+		
+		multi = parseInt(su1) * parseInt(su2);
+		document.getElementById("result").innerHTML = multi;		
+	}
+	function procdivide() {
+		su1 = document.getElementById("su1").value;
+		su2 = document.getElementById("su2").value;
+		
+		divide = parseInt(su1) / parseInt(su2);
+		document.getElementById("result").innerHTML = divide;
+	}
+</script>
+</head>
+<body>
+	첫번째 :
+	<input type="text" id="su1">
+	<br> 두번째 :
+	<input type="text" id="su2">
+	<br>
+
+	<input type="button" value="+" onclick="procadd()">
+	<input type="button" value="-" onclick="procsub()">
+	<input type="button" value="*" onclick="procmulti()">
+	<input type="button" value="/" onclick="procdivide()">
+	<br>
+	<br>
+	<div id="result"></div>
+</body>
+</html>

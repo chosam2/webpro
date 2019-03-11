@@ -1,0 +1,40 @@
+@CHARSET "UTF-8";
+
+input[type=image]{
+		width : 50px;
+		height : 35px;
+		border : 2px solid blue;
+		vertical-align : middle;
+}
+	
+input[type=button], input[type=submit], button{
+		height : 35px;
+}
+	
+fieldset{
+		width : 300px;
+
+}
+	
+label{
+		display : inline-block;
+		width : 100px;
+		
+}
+
+.gend{
+		width : 40px;
+}
+
+pre{
+		border: 2px solid blue;
+		background: skyblue;
+		font-size : 1.5em;
+		width: 100%;
+	}
+	
+div{
+	height: auto;
+	padding: 10px;
+	border: 1px solid blue;
+}

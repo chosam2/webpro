@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>arraytest</title>
+<link type="text/css" rel="stylesheet" href="../css/mycss.css">
+<style>
+</style>
+
+<script>
+	function print(a) { //a: 매개변수, 함수호출시 파라미터로 부터 받는 값을 받는 변수.
+		str = "";
+		for(i=0; i<arr.length; i++){
+			str += i + "번째 : " + arr[i] + "<br>";
+		}
+		a.innerHTML = str;
+	}
+	
+	
+	function proc1() {
+		arr = ["개나리", "진달래", "무궁화", "수선화", "벚꽃"];
+		result = document.getElementById('result1');
+		print(result); //함수호출, 파라미터로 result를 보낸다.
+	}
+	function proc2() {
+		arr = new Array("개나리", "진달래", "무궁화", "수선화", "벚꽃");
+		result = document.getElementById('result2');
+		print(result);
+	}
+	function proc3() {
+		arr = new Array()
+		arr[0] = "개나리";
+		arr[1] = "진달래";
+		arr[2] = "무궁화";
+		arr[3] = "수선화";
+		arr[4] = "벚꽃";	
+		result = document.getElementById('result3');
+		print(result);
+	}
+</script>
+</head>
+<body>
+<pre>
+Array배열
+
+1. 리터널로 직접생성
+	arr = ["개나리", "진달래", "무궁화", "수선화", "벚꽃"]
+	
+2. Array객체로 생성
+	arr = new Array("개나리", "진달래", "무궁화", "수선화", "벚꽃")
+	arr = new Array() arr[0] = "" arr[1] = ""
+	arr = new Array(5)
+	
+</pre>
+<br><br>
+
+<button onclick="proc1()">array1-리터널생성</button><br>
+<div id="result1"></div>
+<hr><br>
+
+<button onclick="proc2()">array2-리터널생성</button><br>
+<div id="result2"></div>
+<hr><br>
+
+<button onclick="proc3()">array3-리터널생성</button><br>
+<div id="result3"></div>
+<hr><br>
+
+</body>
+</html>

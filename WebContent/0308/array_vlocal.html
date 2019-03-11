@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>array_vlocal</title>
+<link type="text/css" rel="stylesheet" href="../css/mycss.css">
+<script>
+
+	function print(a, b) { //a: 매개변수, 함수호출시 파라미터로 부터 받는 값을 받는 변수.
+		str = "";
+		for(i=0; i<a.length; i++){
+			str += i + "번째 : " + a[i] + "<br>";
+		}
+		b.innerHTML = str;
+	}
+	
+	function proc1() {
+		var arr = ["개나리", "진달래", "무궁화", "수선화", "벚꽃"];
+		var result = document.getElementById('result1');
+		print(arr, result); //함수호출, 파라미터로 result를 보낸다.
+		//arr과 result변수가 지역변수 이고 현재 함수내에서만 사용가능.
+		//print함수내에서 지역변수를 사용하고자 한다면
+		//print함수 호출시 파라미터로 두개의 변수를 보내야 한다.
+	}
+	function proc2() {
+		var arr = new Array("사과", "바나나", "딸기", "복숭아", "참외", "수박");
+		var result = document.getElementById('result2');
+		print(arr, result);
+	}
+	
+	function proc3() {
+		var arr = new Array()
+		arr[0] = "대한민국";
+		arr[1] = "중국";
+		arr[2] = "일본";
+		arr[3] = "러시아";
+		var result = document.getElementById('result3');
+		print(arr, result);
+	}
+</script>
+</head>
+<body>
+<pre>
+지역변수
+function 안에서 선언하고 선언된 function에서만 사용 가능 한 변수.
+선언시 변수앞에 var를 붙이면 지역변수.
+</pre>
+<br><br>
+
+<button onclick="proc1()">array1-리터널생성</button><br>
+<div id="result1"></div>
+<hr><br>
+
+<button onclick="proc2()">array2-리터널생성</button><br>
+<div id="result2"></div>
+<hr><br>
+
+<button onclick="proc3()">array3-리터널생성</button><br>
+<div id="result3"></div>
+<hr><br>
+</body>
+</html>

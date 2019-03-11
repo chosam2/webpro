@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>for_gugudan</title>
+<script>
+	function proc1(){
+		
+		str = "";
+		for(i = 2; i < 10; i++){
+			str += "====" + i + "단====" + "<br>";
+			for(j=1; j<10; j++){
+				str += i + " * " + j + " = " + i*j + "<br>";
+				document.getElementById('result1').innerHTML = str
+			}
+			
+		}
+	}
+	function proc2(){
+		
+		str = "";
+		for(i = 2; i < 10; i++){
+			
+			for(j=1; j<10; j++){
+			
+				str += i + " * " + j + " = " + i*j + " &nbsp;&nbsp; ";
+				document.getElementById('result2').innerHTML = str;
+				
+				if(i==2 && (j==1 || j==2 || j==3 || j==4)){
+					str += "&nbsp;"
+				}else if(i==3 && (j==1 || j==2 || j==3)){
+					str += "&nbsp;"
+				}else if(i==4 && j==1){
+					str += "&nbsp;"
+				}else{ 
+					
+				}
+				
+			}
+			str += "<br>";
+		}
+	}
+	function proc3() {
+		str = "<table border='1'>";
+		for(i=1; i<10; i++){
+			str += "<tr>";
+			str += "<td>" + i + "</td>";
+			for(j=2; j<10; j++){
+				str += "<td>" + i*j + "</td>";
+			}
+			str += "</tr>";
+		}
+		str += "</table>";
+		document.getElementById('result3').innerHTML = str;
+	}
+</script>
+<style>
+	div {
+		margin-top: 10px;
+		margin-bottom: 10px;
+		border: 1px solid red;
+		width: 100%;
+		height: 400px;
+		overflow: auto;
+		letter-spacing: 3px;
+		line-height: 30px;
+		text-align: justify;
+	}
+	table {
+		border-spacing: 10px;
+	}
+	td {
+		width: 50px;
+		height: 20px;
+		text-align: center;
+	}
+</style>
+</head>
+<body>
+	버튼을 클릭하면 구구단 출력<br>
+	<button onclick="proc1()">실행</button>
+	<br>
+	<div id="result1"></div>
+	<hr>
+	<br>
+	버튼을 클릭하면 구구단 출력<br>
+	<button onclick="proc2()">실행</button>
+	<br>
+	<div id="result2"></div>
+	<textarea id="result22" rows="20" cols="100">textarea 부분</textarea>
+	<hr>
+	<br>
+	버튼을 클릭하면 표로 구구단 출력<br>
+	<button onclick="proc3()">실행</button>
+	<br>
+	<div id="result3"></div>
+	<hr>
+	<br>
+</body>
+</html>

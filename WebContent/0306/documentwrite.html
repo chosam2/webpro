@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>documentwrite</title>
+<style>
+	div{
+		width: 300px;
+		height: 50px;
+		border: 2px dotted red;
+	}
+	pre{
+		font-size: large;
+		border: 1px solid blue;
+	}
+</style>
+<script>
+
+	//body를 실행하고 문서가 만들어진 후에 스크립트가 실행되도록
+	//자동으로 호출하는 함수를 정의한다.
+	window.onload = function(){
+		
+		//div에 접근해서 글자색을 1초마다 한번씩 변경
+		window.setInterval(function(){
+			res = document.getElementById('result');
+			
+			cr = parseInt(Math.random()*256);
+			cg = parseInt(Math.random()*256);
+			cb = parseInt(Math.random()*256);
+			
+			res.style.color = 'rgb(' + cr + ',' + cg + ',' + cb + ')'
+		}, 1000);
+	
+	}
+	
+	function run() {
+		today = new Date();
+		// document.write(today);
+		document.getElementById('date').innerHTML = today;
+	}
+	
+</script>
+</head>
+<body>
+<pre>
+  window.onload = function(){ } : 기존형식유지, body먼저 실행후 스크립트 실행을 위해 사용
+  window.setInterval(function(){ },1000} : {}안의 스크립트를 1초동안 반복해서 수행.
+  
+  div에 Hello 문자를 출력 하는 방법 
+	- innerHTML = " " : 출력하고자 하는 문자에 html태그가 포함 되어 있는 경우
+	- textContent = " " : 출력하고자 하는 문자에 html태그가 포함 되어있지 않은 경우 
+		
+  요소에 접근하는 방법
+	document.getElementById('')
+	document.getElementsByName('')
+	document.getElementsByTagName('')
+	document.getElementsByClassName('')
+
+  document.write() : 다큐먼트에 글을쓰기위해 사용.
+  document.getElementById('date').innerHTML = today; : 기존 다큐먼트를 유지하면서 지정된 div에 글을 쓰기위해 사용.
+</pre>
+	<div id="result">Hello</div>
+	<br>
+	<button id="but" onclick="run()">실행</button>
+	<div id="date"></div>
+</body>
+</html>

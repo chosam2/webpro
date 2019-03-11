@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>가상클래스_nth.html</title>
+<style>
+	table{
+		border : 2px solid crimson;
+		border-collapse: collapse;
+	}
+
+	td{
+		width : 150px;
+		height: 50px;
+	}
+	
+	/* tr:nth-child(2n){
+		background : lightblue;
+	}
+	
+	td:nth-child(2n+1){
+		background : lightgreen;
+	} */
+	
+	/* tr:nth-child(even){
+		background : lightgreen;
+	}
+	
+	td:nth-child(odd){
+		background : lightblue;
+	} */
+	
+	tr:nth-child(2n){background : lime;}
+	tr:nth-child(1){background : yellow;}
+	td { text-align : center;}
+	
+</style>
+</head>
+<body>
+	
+	<table border="1">
+		<tr>
+			<td>이름</td>
+			<td>전화번호</td>
+			<td>성별</td>
+			<td>이메일</td>
+		</tr>
+		
+		<tr>
+			<td>홍길동</td>
+			<td>010-0000-0000</td>
+			<td>남자</td>
+			<td>asdv@adsv.asdv</td>
+		</tr>
+		
+		<tr>
+			<td>홍길동</td>
+			<td>010-0000-0000</td>
+			<td>남자</td>
+			<td>asdv@adsv.asdv</td>
+		</tr>
+		
+		<tr>
+			<td>홍길동</td>
+			<td>010-0000-0000</td>
+			<td>남자</td>
+			<td>asdv@adsv.asdv</td>
+		</tr>
+	</table>
+	
+	<br>
+	
+	<table border="1">
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+	</table>
+	
+</body>
+</html>

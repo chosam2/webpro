@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>배경이미지라디오버튼</title>
+<style>
+	pre{
+		background: yellow;
+		border : 2px solid blue;
+		font: 1.2em strong;
+	}
+	div{
+		width: 50%;
+		height: 500px;
+		overflow: auto;
+		margin: 20px 40px;
+		padding: 20px 40px 30px;
+		border: 2px solid blue;
+		
+		/* backgorun-color: skyblue;
+		background-image: url(../images/벚꽃.jpg);
+		background-position: center;
+		background-size: 300px 300px;
+		background-repeat: no-repeat;
+		background-attachment: scroll; */
+		
+		background: skyblue url(../images/벚꽃.jpg) center/400px 300px no-repeat scroll; 
+	}
+</style>
+<script>
+		/* document.getElementById('a')//단수
+		document.getElementsByTagName('P') //복수
+		document.getElementsByClassName('pp')//복수 
+		*/
+	function proc() {
+		//둘중 체크되어 있는 값을 비교.-name을 이용.		
+		if( document.getElementsByName('back')[0].checked){
+			document.getElementById('d1').style.backgroundAttachment = "scroll";
+		}else{
+			document.getElementById('d1').style.backgroundAttachment = "local";
+		} //복수 (back-0번째, 1번째 비교)
+		
+	}
+</script>
+</head>
+<body>
+<pre>
+한꺼번에 설정시 순서 :
+background: bg-color  bg-image  position/bg-size  bg-repeat 
+			bg-origin  bg-clip  bg-attachment  initial|inherit;
+
+라디오버튼을 선택시 background-attachment를 변경 :
+&lt;script&gt;
+		/* document.getElementById('a')//단수
+		document.getElementsByTagName('P') //복수
+		document.getElementsByClassName('pp')//복수 
+		*/
+	function proc() {
+		//둘중 체크되어 있는 값을 비교.-name을 이용.		
+		if( document.getElementsByName('back')[0].checked){
+			document.getElementById('d1').style.backgroundAttachment = "scroll";
+		}else{
+			document.getElementById('d1').style.backgroundAttachment = "local";
+		} //복수 (back-0번째, 1번째 비교)
+		
+	}
+&lt;/script&gt;
+
+</pre>
+	<h1>라디오버튼을 선택하세요.</h1>
+	<br><br>
+	<form>
+		<input type="radio" name="back" value="scroll" onclick="proc()">scroll
+		<input type="radio" name="back" value="local" onclick="proc()">local
+	</form>
+	
+	<br>
+	<div id="d1">
+		<h1>삶이 그대를 속일지라도</h1>
+		<h2>한국어로</h2>
+		삶이 그대를 속일지라도...<br>
+		<br>
+		삶이 그대를 속일지라도<br>
+		슬퍼하거나 노여워하지 말라!<br>
+		슬픈 날을 참고 견디면<br>
+		기쁜 날이 오고야 말리니.<br>
+		<br>
+		마음은 미래에 살고<br>
+		현재는 우울한 것<br>
+		모든 것은 순간에 지나가고<br>
+		지나간 것은 다시 그리워지나니.<br>
+		<hr>
+		
+		<h2>영어로</h2>
+		If by life you were deceived...<br>
+		<br>
+		If by life you were deceived,<br>
+		Don't be dismal, don't be wild!<br>
+		In the day of grief, be mild<br>
+		Merry days will come, believe. <br>
+		Heart is living in tomorrow;<br>
+		Present is dejected here;<br>
+		In a moment, passes sorrow;<br>
+		That which passes will be dear.<br>
+		<br>
+		Translated by M. Kneller<br>
+		<br>
+		<br>
+		Should this life sometime deceive you...<br>
+		<br>
+		Should this life sometime deceive you,<br>
+		Don't be sad or mad at it!<br>
+		On a gloomy day, submit:<br>
+		Trust - fair day will come, why grieve you?<br>
+		Heart lives in the future, so<br>
+		What if gloom pervade the present?<br>
+		All is fleeting, all will go;<br>
+		What is gone will then be pleasant.<br>
+		<br>
+		Translated by Genia Gurarie<br>
+		<hr> 
+		
+		<h2>러시아어로</h2>
+		Если жизнь тебя обманет...<br>
+		<br>
+		Если жизнь тебя обманет,<br>
+		Не печалься, не сердись!<br>
+		В день уныния смирись:<br>
+		День веселья, верь, настанет.<br> 
+		Сердце в будущем живет;<br>
+		Настоящее уныло:<br>
+		Все мгновенно, все пройдёт;<br>
+		Что пройдёт, то будет мило.<br>
+		<hr>
+		<h2>중국어로</h2>
+		《假如生 活欺骗 了你》<br>
+		<br>
+		假如生活 欺骗了 你,<br>
+		不要忧郁 ,也不 要愤慨 !<br>
+		不顺心时 暂且克 制自己 ,<br>
+		相信吧, 快乐之 日就会 到来。<br>
+		我们的心 儿憧憬 着未来 ,<br>
+		现今总是 令人悲 哀:<br>
+		一切都是 暂时的 ,转瞬 即逝,<br>
+		而那逝去的将变得可爱。 <br>
+		<hr>
+		
+		<h2>일본어로</h2>
+		もし人生に裏切られることがあろうが、<br>
+		嘆くことなんかないよ、腹立てることはないよ！<br>
+		憂鬱な気分に日はそれに従おう、<br>
+		明るくなれる日は必ず来るさ！<br>
+		<br>
+		心は未来に生きているんだ<br>
+		今は落ち込んでいるだけなんだ<br>
+		全ては一瞬のこと、全ては過ぎ去るさ<br>
+		過ぎ去ってしまえば、なつかしく思えるものさ <br>
+	</div>
+	
+</body>
+</html>

@@ -1,0 +1,46 @@
+<html>
+  <style>
+    img {  
+	  width : 100px;
+	  height : 100px;
+	}
+	p{
+	  width : 50%;
+	  height : 50px;
+	  color : red;
+	  font-size : 30px;
+	  background : yellow;
+	  text-align : center;
+	}
+  </style>
+    
+  <script>
+    function change(){
+	  p1 = document.getElementsByTagName('p')[0];
+	  
+	  //랜덤한 수, 난수, 불규칙한 수
+	  //색상지정 : blue, red, pink
+	  //rgb(128,255,90) >> rgb(255,0,0)-red
+	  //rgb(100%, 50%, 28%)
+	  //#ff0000-red #00ff00-green #0000ff-blue
+	  //난수 발생 Math함수
+	  //정수 : parseInt()사용
+	  a = parseInt(Math.random()*255);
+	  b = parseInt(Math.random()*255);
+	  c = parseInt(Math.random()*255);
+	  
+	  //'a'=글자a, a=변수값
+	  
+	  p1.style.color = 'rgb(' + a + ',' + b + ',' + c + ')'; // ''변수제외  
+	  p1.style.background = 'rgb(' + c + ',' + a + ',' + b + ')';
+	}
+  </script>
+  
+  <body>
+    <p onclick="change()" >Hello World~~</p>
+    <br/>
+	안녕하세요<br>
+	<br>
+	<img src="images/Koala.jpg">
+  </body>
+</html>

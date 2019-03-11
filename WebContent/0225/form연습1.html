@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script> 
+	function send(){
+		a=document.getElementById("name").value;
+		b=document.getElementById("email").value;
+		c=document.getElementById("textar").value;
+		
+		alert(a + b + c);
+	}
+</script>
+
+</head>
+<body>
+	<h2>이메일 전송화면</h2>
+	<form>
+		이름 : <input type="text" id="name"> <br>
+		이메일 주소 : <input type="text" id="email"> <br>
+		내용 : <br>
+		<textarea rows="8" cols="60" id="textar"></textarea><br>
+		<input type="button" value="전송" onclick="send()">
+		<input type="reset" value="초기화">
+	</form>
+	<br>
+	<hr>
+	<h2>회원 가입 화면</h2>
+	<form>
+		이름 : <input type="text"><br>
+		주소 : <input type="text"><br>
+		email : <input type="text"><br>
+		<input type="radio">Male<br>
+		<input type="radio">Female<br>
+		<input type="button" value="send">
+		<input type="reset" value="원래대로">
+	</form>
+</body>
+</html>

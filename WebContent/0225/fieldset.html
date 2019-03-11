@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>fieldset.html</title>
+
+<link rel="stylesheet" type="text/css" href="../css/mycss.css"> <!-- 외부 스타일 시트 -->
+
+<style>
+	/* *{
+		background : yellow;
+		color : blue;
+		font-size : 1.2em;
+	} 
+	전체 스타일.
+	*/
+	fieldset{
+		width : 600px;
+	}
+/* form 의 후손인 input을 선택한다. */	
+	form input{
+		border : 2px solid crimson;
+	}
+/* form 의 자식인 input을 선택한다. */
+	form > input{
+		border : 3px dotted lime;
+	} 
+
+</style> <!-- 내부 스타일 시트 -->
+
+<script>
+	function proc(){
+		//변수 선언
+		var a; //스크립트는 변수타입설정을 안함. var사용.
+		var b;
+		//스크립트는 변수 선언 없이 사용할 수 있다.
+		
+		//값을 대입
+		a = 10;
+		b = 23.678;
+		
+		//계산
+		c = a + b;
+		
+		//출력
+		alert(c);
+		
+	}
+</script>
+
+</head>
+<body>
+	함수 : 기능을 수행 <br>
+	내장함수 : alert('메세지'), getElementById('id이름')<br>
+	사용자 함수 : 함수를 직접 만든다. <br>
+	사용자 함수가 정의 되었으면 호출하여 사용한다. <br>
+	함수 정의 function 함수이름 (변수) { } <br>
+	<br>
+	<br>
+
+	<form action="formsend.jsp" method="get">
+		<label>이름 : </label>
+		<input type = "text" name = "name"><br>
+		
+		<label>비밀번호 : </label>
+		<input type = "password" name = "pass"><br>
+		
+		<label>이메일 : </label>
+		<input type = "email" name = "email"><br>
+		
+		<fieldset>
+			<legend>성별</legend>
+			<input type = "radio" name="gender" value = "m">남자
+			<input type = "radio" name="gender" value = "w">여자
+		</fieldset>
+		
+		<fieldset>
+			<legend>성별</legend>
+			
+			<label class="gend" for="m">남자</label>
+			<input type = "radio" id="m" name="gender" value = "m">
+			
+			<label class="gend" for="w">여자</label>
+			<input type = "radio" id="w" name="gender" value = "w">
+		</fieldset>
+		
+		<fieldset>
+			<legend>전송하기</legend>
+			<input type = "submit" value = "submit전송">
+			<input type = "image" src = "../images/풍경1.jpg">
+			<button>button전송</button>
+		</fieldset>
+		
+		<fieldset>
+			<legend>전송 안됨</legend>
+			<button type="button" onclick="alert('hello')">button</button>
+			<input type="button" onclick="proc()" value="확인">
+		</fieldset>
+		
+		<fieldset>
+			<input type = "file" accept = "image/jsp, image/gif">
+		</fieldset>
+		
+		<input type = "date">
+	</form>
+</body>
+</html>

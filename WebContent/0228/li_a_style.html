@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>li_a_style</title>
+<style>
+	pre{
+		background: yellow;
+		border : 2px solid blue;
+		font: 1em strong;
+	}
+	#list1{
+		list-style-type: none;
+		border-top: 2px solid red;
+		border-bottom: 2px solid red;
+		padding: 20px;
+		text-align: right;
+	}
+	#list1 li{
+		display: inline;
+		margin: 10px;
+		letter-spacing: 10px;
+	}
+	#list1 li a{
+		text-decoration: none;
+		text-transform: uppercase;
+	}
+	#list1 li a:hover{ 
+		text-decoration: underline;
+	}/* 마우스 올려놓을때 */
+	#list1 li a:ACTIVE{ 
+		color : green;
+		font-size: 1.3em;
+	}/* 누르고 있을때 */
+	#list2 li a{
+		
+	}
+</style>
+</head>
+<body>
+<pre>
+&lt;style&gt;
+	#list1{
+		list-style-type: none;
+		border-top: 2px solid red;
+		border-bottom: 2px solid red;
+		padding: 20px;
+		text-align: right;
+	}
+	#list1 li{
+		display: inline;
+		margin: 10px;
+		letter-spacing: 10px;
+	}
+	#list1 li a{
+		text-decoration: none;
+		text-transform: uppercase;
+	}
+	#list1 li a:hover{ 
+		text-decoration: underline;
+	}/* 마우스 올려놓을때 */
+	#list1 li a:ACTIVE{ 
+		color : green;
+		font-size: 1.3em;
+	}/* 누르고 있을때 */
+	#list2 li a{
+		
+	}
+&lt;/style&gt;
+</pre>
+	<ul id="list1">
+		<li><a href="http://www.naver.com"> Home </a></li>
+		<li><a href="../2028/배경이미지라디오버튼.html"> About </a></li>
+		<li><a href="#"> Blog </a></li>
+		<li><a href="#"> Mypage </a></li>
+		<li><a href="#"> Board </a></li>
+	</ul>
+	
+	<ul id="list2">
+		<li><a href="http://www.naver.com"> Home </a></li>
+		<li><a href="../2028/배경이미지라디오버튼.html"> About </a></li>
+		<li><a href="#"> Blog </a></li>
+		<li><a href="#"> Mypage </a></li>
+		<li><a href="#"> Board </a></li>
+	</ul>
+</body>
+</html>

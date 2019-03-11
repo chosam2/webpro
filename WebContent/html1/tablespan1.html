@@ -1,0 +1,167 @@
+<html>
+	<head>
+		<meta charset = "UTF-8">
+		<title></title>
+		<style>
+			#table1 td {
+				width : 100px;
+				height : 50px;
+				text-align : center;
+			}
+			hr{
+				border : 2px dotted #0088ff
+			}
+			.cont1, #t1 {
+				width : 45px;
+			}
+			.cont2, #t2 {
+				width : 25px;
+			}
+			.cont3, #t3 {
+				width : 560px;
+			}
+			.cont4, #t4 {
+				width : 40px;
+			}
+			.cont5, #t5 {
+				width : 60px;
+			}
+			#table3 td{
+				width : 100px;
+				height : 80px;
+			}
+			#table4 {
+				border : 3px double yellow;
+			}
+			#table4 td{
+				height : 30px;
+				text-align : center;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<table id="table1" border = "1">
+			<tr>
+				<th>1열</th>
+				<th>2열</th>
+				<th>3열</th>
+			</tr>
+			<tr>
+				<td rowspan="2">1행 1열</td>
+				<td>1행 2열</td>
+				<td>1행 3열</td>
+			</tr>
+			<tr>
+				<td>2행 2열</td>
+				<td>2행 3열</td>
+			</tr>
+			<tr>
+				<td colspan="3">3행 1열</td>
+			</tr>
+		</table>
+		<hr>
+		<table border = "1">
+			<tr>
+				<th colspan = "5">평생교육원 강좌 소개 -- 2015년도 1학기</th>
+			</tr>
+			<tr>
+				<th id = "t1">강좌이름</th>
+				<th id = "t2">강의자</th>
+				<th id = "t3">소개</th>
+				<th id = "t4">강좌코드</th>
+				<th id = "t5">실습비</th>
+			</tr>
+				<td class = "cont1">뎃생과 유화</td>
+				<td class = "cont2">김철수</td>
+				<td class = "cont3">모든 미술영역의 뼈대를 이루는 뎃생의 기본실력을 체계적으로 다루며, 유화에서는 재료를 다루는 방법에서부터 다양한 표현기법에 이르기까지 전문적인 미술인으로 입문할 수 있도록 각 개인의 수준에 맞추어 개인별, 단계별로 지도합니다.</td>
+				<td class = "cont4">H27</td>
+				<td class = "cont5">100,000원</td>
+			<tr>
+			</tr>
+				<td class = "cont1">바이올린</td>
+				<td class = "cont2">홍길동</td>
+				<td class = "cont3">전반적인 현악기의 특성을 파악하며 기초를 다지고, 데뛰드와 곡을 접하면서 아름다운 음색의 바이올린을 연주할 수 있다.</td>
+				<td class = "cont4">H28</td>
+				<td class = "cont5">200,000원</td>
+			<tr>
+				<td class = "cont1">성악아카데미</td>
+				<td class = "cont2">김호성</td>
+				<td class = "cont3">강의를 통해 배우고 익힌 곡을 음악회를 통하여 기량을 향상하고 무대를 경험한다.</td>
+				<td class = "cont4">H30</td>
+				<td class = "cont5">300,000원</td>
+			</tr>
+		</table>
+		<hr>
+		<table id="table3" border = "1">
+			<tr>
+				<td colspan = "2"></td>
+				<td colspan = "2"></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td colspan = "4"></td>
+				<td colspan = "2"></td>
+			</tr>
+			<tr>
+				<td colspan = "4"></td>
+				<td colspan = "2" rowspan = "2"></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+		</table>
+		<hr>
+		<h1>나의홈페이지</h1>
+		<img src = "images/풍경1.jpg">
+		<br>
+		<strong>컴퓨터 프로그래머를 꿈꾸며 열심히 대덕인재개발원에서 공부하고 있는 김민현입니다.</strong>
+		<br><br>
+		현재 학습하고 있는 과목
+			<ul>
+				<li>HTML5&Script <a href = "https://www.w3.org/" target="_blank">W3C사이트</a></li>
+				<li>JAVA</li>
+				<li>데이터베이스</li>
+				<li>JSP</li>
+			</ul>
+		<table id="table4" border = "1">
+			<caption>
+				시간표
+			</caption>
+			<tr>
+				<th></th>
+				<th>3월</th>
+				<th>4월</th>
+				<th>5월</th>
+				<th>6월</th>
+				<th>7월</th>
+				<th>8월</th>
+				<th>9월</th>
+			</tr>
+			<tr>
+				<td>오전</td>
+				<td>HTML5 & Script</td>
+				<td>jQuery</td>
+				<td>고급자바</td>
+				<td>JSP</td>
+				<td>Framework</td>
+				<td>프로젝트</td>
+				<td>프로젝트</td>
+			</tr>
+			<tr>
+				<td>오후</td>
+				<td>기초자바</td>
+				<td>Oracle</td>
+				<td>고급자바</td>
+				<td>JSP</td>
+				<td>Framework</td>
+				<td>프로젝트</td>
+				<td>프로젝트</td>
+			</tr>
+		</table>
+	</body>
+</html>

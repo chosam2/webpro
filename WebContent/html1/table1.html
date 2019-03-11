@@ -1,0 +1,80 @@
+<html>
+	<head>
+	<meta charset = "UTF-8">
+		<title></title>
+		<style>
+			table {
+				border : 2px solid blue;
+				border-collapse : collapse;
+				
+				/*
+				2px   : border - width
+				solid : border - style
+				blue  : border - color
+				*/
+			}
+			
+			td{
+				width : 200px;
+				height : 50px;
+				text-align : center; //가운데 정렬
+			}
+			
+			th{
+				height : 50px;
+				font-size : 1.5em;
+				background : yellow;
+			}
+			
+			#table2{
+				border-top : 5px dotted green;
+				border-bottom : 10px dashed red;
+				
+				border-left-color : lime;
+				border-right-width : 10px;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<table id = "table1" border = "1">
+			
+			<tr>
+				<th>이름</th>
+				<th>주소</th>
+			</tr>
+			
+			<tr>
+				<td>홍길동</td>
+				<td>대전</td>
+			</tr>
+			
+			<tr>
+				<td>개나리</td>
+				<td>서울</td>
+			</tr>
+			
+		</table>
+		
+		<br>
+		
+		<table id = "table2" border = "1">
+			
+			<tr>
+				<th>이름</th>
+				<th>주소</th>
+			</tr>
+			
+			<tr>
+				<td>홍길동</td>
+				<td>대전</td>
+			</tr>
+			
+			<tr>
+				<td>개나리</td>
+				<td>서울</td>
+			</tr>
+			
+		</table>
+	</body>
+</html>

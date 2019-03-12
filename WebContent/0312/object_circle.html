@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	/* Circle circle = new Circle(); */
+
+	var circle = {
+		r : 50,
+		getArea : function() {
+			return this.r * this.r * Math.PI;
+		}
+	}
+
+	function proc1() {
+		str = "";
+		str += "반지름 : " + circle.r + "<br>";
+		str += "넓이 : " + circle.getArea() + "<br>";
+
+		document.getElementById("result1").innerHTML = str;
+
+		//값 변경
+		circle.r = circle.r + 3;
+		area = circle.getArea();
+
+		str = "<br>값 변경<br><br>";
+		str += "반지름 : " + circle.r + "<br>";
+		str += "넓이 : " + area + "<br>";
+
+		document.getElementById("result1").innerHTML += str;
+	}
+
+	function proc2() {
+		str = "";
+		circle = {};
+
+		circle.r = 10;
+		circle.pi = 3.14;
+
+		area = circle.r * circle.r * circle.pi;
+		str += "반지름 : " + circle.r + "<br>";
+		str += "넓이 : " + area + "<br>";
+
+		document.getElementById("result2").innerHTML += str;
+
+	}
+
+	function Circle(r) {
+		this.r = r;
+
+		this.getArea = function() {
+			return this.r * this.r * circle.pi;
+		}
+	}
+
+	function proc3() {
+		str = "";
+		circle1 = new Circle();
+		circle1.r = 4;
+		print(circle1);
+
+		circle2 = new Circle(5);
+		print(circle2);
+
+		circle3 = new Circle(2);
+		print(circle3);
+	}
+
+	function print(circle) {
+		str += "반지름 " + circle.r + "<br>";
+		str += "넓이 " + circle.getArea() + "<br><br>";
+
+		document.getElementById("result3").innerHTML = str;
+	}
+</script>
+</head>
+<body>
+	<h2>버튼을 클릭하면 리터럴에 의한 객체를 생성</h2>
+	<pre>
+		원의 넓이를 구하기위해 3가치 방법으로 객체생성
+	</pre>
+
+	<br>
+	<button type="button" onclick="proc1()">객체생성!</button>
+	<div id="result1"></div>
+	<br>
+	<br>
+
+	<br>
+	<button type="button" onclick="proc2()">객체생성!</button>
+	<div id="result2"></div>
+	<br>
+	<br>
+
+	<br>
+	<button type="button" onclick="proc3()">객체생성!</button>
+	<div id="result3"></div>
+	<br>
+	<br>
+
+
+</body>
+</html>

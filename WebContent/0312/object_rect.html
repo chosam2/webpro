@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	// 사각형을 나타내는 객체
+
+	var myRect = {
+		width : 10,
+		height : 10,
+		getArea : function() {
+			return this.width * this.height;
+		}
+	}
+
+	function proc1() {
+		str = "";
+		str += "가로 : " + myRect.width + "<br>";
+		str += "세로 : " + myRect.height + "<br>";
+		str += "넓이 : " + myRect.getArea() + "<br>";
+
+		document.getElementById("result1").innerHTML = str;
+
+		//값 변경하기
+		myRect.width = myRect.width + 3;
+		myRect.height = myRect.height + 2;
+		area = myRect.getArea();
+
+		str = "<br>값 변경<br><br>";
+		str += "가로 : " + myRect.width + "<br>";
+		str += "세로 : " + myRect.height + "<br>";
+		str += "넓이 : " + area + "<br>";
+
+		document.getElementById("result1").innerHTML += str;
+	}
+
+	function proc2() {
+
+		rect = {};
+
+		rect.garo = 12;
+		rect.sero = 20;
+
+		area = rect.garo * rect.sero;
+
+		str = "가로 : " + rect.garo + "<br>";
+		str += "세로 : " + rect.sero + "<br>";
+		str += "넓이 : " + area + "<br>";
+
+		document.getElementById("result2").innerHTML += str;
+
+	}
+	// 생성자 함수로 민들어지는 객체
+	function Rect(garo, sero) {
+		this.garo = garo;
+		this.sero = sero;
+
+		this.getArea = function() {
+			return this.garo * this.sero;
+		}
+	}
+
+	function proc3() {
+
+		rect1 = new Rect();
+		rect1.garo = 9;
+		rect1.sero = 6;
+		print(rect1);
+
+		rect2 = new Rect(5, 7);
+		print(rect2);
+
+		rect3 = new Rect(10, 11);
+		print(rect3);
+
+	}
+
+	str = "";
+	function print(rect) {
+		str += "가로 " + rect.garo + "<br>";
+		str += "세로 " + rect.sero + "<br>";
+		str += "면적 " + rect.getArea() + "<br><br>";
+
+		document.getElementById("result3").innerHTML = str;
+	}
+</script>
+<style>
+div {
+	height: auto;
+	width: auto;
+	border: 2px solid red;
+	padding: 20px;
+}
+</style>
+
+</head>
+<body>
+	<h2>버튼을 클릭하면 리터럴에 의한 객체를 생성</h2>
+	<pre>
+	사각형을 나타내는 객체
+	rect = { }
+	속성 : width, height;
+	함수 : getArea();
+</pre>
+
+	<br>
+	<button type="button" onclick="proc1()">객체생성</button>
+	<div id="result1"></div>
+	<br>
+	<br>
+
+	<br>
+	<button type="button" onclick="proc2()">객체생성</button>
+	<div id="result2"></div>
+	<br>
+	<br>
+
+	<h2>생성자에 의한 객체생성</h2>
+	<pre>
+	생성자를 정의한다
+	생성자는 함수의 형태로 되어있다.
+	function Rect(garo, sero) { 
+		
+		rect1 = new Rect();
+		rect2 = new Rect(4,5);
+	};
+	</pre>
+	<br>
+	<button type="button" onclick="proc3()">객체생성</button>
+	<div id="result3"></div>
+	<br>
+	<br>
+</body>
+</html>

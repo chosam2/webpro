@@ -14,21 +14,22 @@ div {
 <script>
 
 	function add() {
-		return su1 + su2;
+		return s1 + s2;
 	}	
 	function sub() {
-		return su1 - su2;
+		return s1 - s2;
 	}	
 	function multi() {
-		return su1 * su2;
+		return s1 * s2;
 	}	
 	function divide() {
-		return su1 / su2;
+		return s1 / s2;
 	}	
 	
 	function proc(a) {
-		su1 = parseInt(document.getElementById("su1").value); // 지역변수로 선언하면 오류남
-		su2 = parseInt(document.getElementById("su2").value);
+		// window 객체에 포함되어 있기때문에 객체를 바로 리턴함(?)
+		s1 = parseInt(document.getElementById("su1").value); // 지역변수로 선언하면 오류남
+		s2 = parseInt(document.getElementById("su2").value);
 		
 		switch(a) {
 		case '+' :
@@ -54,13 +55,13 @@ div {
 			break;
 		}
 		
-		
 	}
 
 </script>
 </head>
 <body>
-	첫번째 : <input type="text" id="su1">
+	<!-- proc를 지역변수로(var) 선언하면 window에 속해있는 "su1"을 찾음 -->
+	첫번째 : <input type="text" id="su1">	
 	<br> 
 	두번째 : <input type="text" id="su2">
 	<br>

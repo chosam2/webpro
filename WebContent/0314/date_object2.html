@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+div {
+	width: 500px;
+	height: auto;
+	padding: 10px;
+	margin: 10px;
+	border: 1px solid red;
+}
+
+pre {
+	font-size: 15px;
+}
+</style>
+<script>
+	var today = new Date();
+
+	function proc1() {
+
+		//alert(today.getDay());
+		str = "";
+		day = today.getDay();
+		switch (day) {
+		case 0:
+			str = "일요일";
+			break;
+		case 1:
+			str = "월요일";
+			break;
+		case 2:
+			str = "화요일";
+			break;
+		case 3:
+			str = "수요일";
+			break;
+		case 4:
+			str = "목요일";
+			break;
+		case 5:
+			str = "금요일";
+			break;
+		case 6:
+			str = "토요일";
+			break;
+		}
+		res = today.toLocaleString() + "<br>";
+		res += "오늘은 " + str + "입니다.<br>";
+		document.getElementById("result1").innerHTML = res;
+	}
+
+	function proc2() {
+
+		days = [ "일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일" ];
+		day = today.getDay();
+		res = "";
+		str = days[day];
+		res += "오늘은 " + str + "입니다.<br>";
+		document.getElementById("result2").innerHTML = res;
+
+	}
+	
+
+	function proc3() {
+			
+		birtday = new Date(1995,01,21);
+		alert(today.getTime())
+		times = today.getTime() - birtday.getTime();	// 밀리세컨드
+		//times = seconds / 31536000000;
+		// 1분 = 60초, 1시간 = 60분 = 3600초, 하루 = 24시간 = 1440분 = 86400초, 
+		// 1년 = 365일 = 31536000;
+		
+		year = times/1000/60/60/24/365;
+		str = "태어난날 : " + birtday.toLocaleString() + "<br>";
+		str += year + "년이 경과했습니다.";
+		document.getElementById("result3").innerHTML = str;
+	}
+	
+	function check() {
+		/* 
+		폼의 input date에서 선택한 값을 가져 오기 -> value
+		document.getElementById("pdate").value value속성으로 가져오거나
+		document.getElementsByName("ff") 이름으로 접근
+		 */
+		//alert(document.ff.pdate.value);
+		pdate = document.ff.pdate.value;
+		
+		pday = new Date(pdate);
+		times = today.getTime() - pday.getTime();
+		day = times/1000/60/60/24;
+		day  = parseInt(day);
+		str = "";
+		if(day > 7) {
+			str += "구매일로부터 : " + day + "일 지났습니다.<br>"
+			str += "교환 가능 불가능합니다.<br>"
+		} else {
+			str += "교환해드리겠습니다."
+		}
+		document.getElementById("result4").innerHTML = str;
+		
+	}
+</script>
+</head>
+<body>
+	<h2>요일 구하기 : getDay() / switch문</h2>
+	<pre>
+		today = new Date();
+		day = today.getDay();
+		str = "";
+	</pre>
+	<button type="button" onclick="proc1()">요일구하기</button>
+	<br>
+	<div id="result1"></div>
+	<br>
+	<br>
+
+	<h2>배열을 이용한 요일 구하기</h2>
+	<button type="button" onclick="proc2()">요일구하기</button>
+	<br>
+	<div id="result2"></div>
+	<br>
+	<br>
+
+	<h2>살아온 날짜 구하기</h2>
+	<button type="button" onclick="proc3()">살아온 날 구하기</button>
+	<br>
+	<div id="result3"></div>
+	<br>
+	<br>
+	<form name="ff">
+		구입날짜 : <input type="date" id="pdate" name="pdate">
+		<button type="button" onclick="check()">검사</button>
+		<br>
+		<div id="result4"></div>
+	</form>
+</body>
+</html>

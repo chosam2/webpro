@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+div {
+	width: 200px;
+	height: auto;
+	padding: 20px;
+	margin: 20px;
+	border: 1px solid red;
+}
+</style>
+
+<script>
+	var arr = Array(5);
+
+	function proc1() {
+		// 배열변수를 선언
+
+		for (i = 0; i < arr.length; i++) {
+			arr[i] = prompt(i + "번째 숫자를 입력 >");
+			for (k = 0; k < i; k++) {
+				if (arr[i] == arr[k]) {
+					i--;
+					continue;
+				}
+			}
+		}
+		document.getElementById("result1").innerHTML = arr;
+	}
+
+	function proc2() {
+
+		var arr = Array(5);
+
+		for (i = 0; i < arr.length; i++) {
+			arr[i] = prompt(i + "번째 숫자를 입력 >");
+			for (j = 0; j <= i - 1; j++) {
+				if (arr[i] == arr[j]) {
+					i--;
+					break;
+					;
+				}
+			}
+		}
+		document.getElementById("result2").innerHTML = arr;
+	}
+
+	function proc3() {
+
+		for (i = 0; i < arr.length; i++) {
+
+			while (true) {
+				tmp = prompt(i + "번째 입력해라");
+
+				flag = false;
+				for (k = 0; k < i; k++) {
+					if (tmp == arr[k]) {
+						flag = true;
+						break;
+					}
+				}
+				if (!flag) {
+					break;
+				}
+			}
+			arr[i] = tmp;
+		}
+
+		document.getElementById("result3").innerHTML = arr;
+	}
+
+	function proc4() {
+		var arr = Array();
+		
+		for (i = 0; i < 5; i++) {
+			a = prompt(i + "");
+
+			//alert(arr.indexOf(a));
+			if (arr.indexOf(a) != -1) {
+				i--;
+				continue;
+			} else {
+				arr.push(a);
+			}
+		}
+		document.getElementById("result4").innerHTML = arr;
+	}
+</script>
+</head>
+<body>
+	서로 중복되지 않은 정수 5개를 입력 받아 출력하는 프로그램을 작성하시오.
+	<br>
+	<br>
+
+	<h2>서로다른 정수 버튼</h2>
+	<button type="button" onclick="proc1()">실행</button>
+	<div id="result1"></div>
+
+	<h2>서로다른 정수 버튼(선생님 ver)</h2>
+	<button type="button" onclick="proc2()">실행</button>
+	<div id="result2"></div>
+
+	<h2>서로다른 정수 버튼(while ver)</h2>
+	<button type="button" onclick="proc3()">실행</button>
+	<div id="result3"></div>
+
+	<h2>뭐고</h2>
+	<button type="button" onclick="proc4()">실행</button>
+	<div id="result4"></div>
+</body>
+</html>

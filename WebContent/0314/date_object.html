@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	div {
+		width : 400px;
+		height : auto;
+		padding : 20px;
+		margin : 20px;
+		border : 1px solid red;
+	}
+</style>
+
+<script>
+	window.onload = function () {
+		
+		now1 = new Date();
+		now2 = new Date(1000000000000);
+		//now3 = new Date("1995.2.21");
+		now4 = new Date(2000,1,2,5);
+		
+		document.getElementById("result1").innerHTML = now1 + "<br>";
+		document.getElementById("result1").innerHTML += now2 + "<br>";
+		//document.getElementById("result1").innerHTML += now3 + "<br>";
+		document.getElementById("result1").innerHTML += now4 + "<br>";
+		
+		
+		now5 = now1.toLocaleString();
+		now6 = now2.toLocaleDateString();
+		now7 = now4.toLocaleTimeString();		
+		document.getElementById("result2").innerHTML += now5 + "<br>";
+		document.getElementById("result2").innerHTML += now6 + "<br>";
+		document.getElementById("result2").innerHTML += now7 + "<br>";
+		
+	}
+</script>
+</head>
+<body>
+	<h1>Date객체 연습1</h1>
+	<pre>
+		new Date() // 현재 날짜와 시간
+		new Date(milliseconds) //1970/01/01 이후의 밀리초
+		new Date(dateString)
+		new Date(year, month, date[, hours[, minutes[, seconds[,ms]]]])
+	</pre>
+	<br>
+	<div id="result1"></div>
+
+	<h1>Date객체 연습2</h1>
+	<br>
+	<div id="result2"></div>
+</body>
+</html>

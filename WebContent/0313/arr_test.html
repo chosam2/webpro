@@ -32,9 +32,9 @@ div {
 	}
 
 	function proc1() {
-		
+
 		length = prompt("저장할 공간의 크기를 지정하세요.");
-		
+
 		var arr = [];
 
 		for (var i = 0; i < length; i++) {
@@ -43,23 +43,24 @@ div {
 
 		document.getElementById("result1").innerHTML = arr;
 	}
-	
+
 	// 중복되지 않는 수 입력
 	function proc2() {
-		
+
 		numbers = new Array();
-		
-		for(i = 0; i < 5; i++) {
+
+		for (i = 0; i < 5; i++) {
 			numbers[i] = prompt("내용입력");
-			for(j = 0; j < i; j++) {
-				if(numbers[j] == numbers[i]) {
+			for (j = 0; j < i; j++) {
+				//for(j = 0; j <= i - 1; j++) {
+				if (numbers[j] == numbers[i]) {
 					i--;
 					continue;
 				}
 			}
 		}
 		document.getElementById("result2").innerHTML = numbers;
-		
+
 	}
 </script>
 </head>
@@ -81,6 +82,6 @@ div {
 	<h2>prompt 중복되지 않는 숫자 입력.</h2>
 	<button type="button" onclick="proc2()">배열 생성버튼</button>
 	<div id="result2"></div>
-	
+
 </body>
 </html>

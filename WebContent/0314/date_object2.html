@@ -102,6 +102,27 @@ pre {
 		document.getElementById("result4").innerHTML = str;
 		
 	}
+
+	function check2() {
+		tdate = document.tt.tdate.value;
+		
+		tday = new Date(tdate);
+		times = today.getTime() - tday.getTime();
+		
+		year = times/1000/60/60/24/365;
+		year  = parseInt(year);
+		
+		month = times/1000/60/60/24/12;
+		month = parseInt(month);
+
+		day = times/1000/60/60/24;
+		day  = parseInt(day);
+		
+		str = "";
+		str += year + "년" + month + "월" + day + "일";
+		document.getElementById("result5").innerHTML = str;
+		
+	}
 </script>
 </head>
 <body>
@@ -135,6 +156,14 @@ pre {
 		<button type="button" onclick="check()">검사</button>
 		<br>
 		<div id="result4"></div>
+	</form>
+	<br><br>
+
+	<form name="tt">
+		여자친구 만난 날: <input type="date" id="tdate" name="tdate">
+		<button type="button" onclick="check2()">검사</button>
+		<br>
+		<div id="result5"></div>
 	</form>
 </body>
 </html>

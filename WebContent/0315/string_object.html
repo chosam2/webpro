@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+p {
+	font-size: 1.3em;
+	color: red;
+}
+
+div {
+	width: 500px;
+	height: auto;
+	padding: 10px;
+	margin: 10px;
+	background: lightblue;
+	overflow : scroll;
+}
+</style>
+
+<script>
+	str = "우리 나라 좋은 나라 대한 민국";
+
+	function proc1() {
+		s = 3;
+		aa = str.charAt(s);
+		document.getElementById("result1").innerHTML = s + "번째 문자는 : " + aa + "입니다.";
+	}
+	
+	function proc2() {
+		
+		s = 5;
+		ss = str.charAt(s);
+		aa = str.charCodeAt(s);
+		document.getElementById("result2").innerHTML = s + "번째 문자는 : "  + ss + " 이고<br>" 
+		+ "Unicode는 : " + aa + "입니다.";
+		
+	}
+
+	function proc3() {
+
+		a = prompt("찾고자하는 문자를 입력하세요!");
+		idx = str.indexOf(a);
+		if(idx >= 0) {
+			res = a + " 문자는 " + idx + "번째에 있습니다.";
+		} else {
+			res = a + " 문자는 없습니다..";
+		}
+			document.getElementById("result3").innerHTML = res; 
+		
+	}
+
+	function proc4() {
+
+		a = prompt("찾고자하는 문자를 입력하세요!");
+		idx = str.lastIndexOf(a);
+		if(idx >= 0) {
+			res = a + " 문자는 " + idx + "번째에 있습니다.";
+		} else {
+			res = a + " 문자는 없습니다..";
+		}
+			document.getElementById("result4").innerHTML = res; 
+	}
+	
+	function proc5() {
+		
+		start = 2;
+		end = 8;
+		
+		ss = str.substring(start, end);
+		document.getElementById("result5").innerHTML = start + "부터 " + (end - 1) + "까지의 문자열 : " + ss;
+		
+	}
+	
+	function proc6() {
+			
+			start = 2;
+			end = 8;
+			
+			ss = str.slice(start, end);
+			document.getElementById("result6").innerHTML = start + "부터 " + (end - 1) + "까지의 문자열 : " + ss;
+		}
+	
+	function proc7() {
+			
+			start = 3;
+			length = 8;
+			
+			ss = str.substr(start, length);
+			document.getElementById("result7").innerHTML = start + "부터 " + length + "개 문자열 추출 : " + ss;
+		}
+
+	function proc8() {
+			
+			arr = str.split(" ");
+		
+			document.getElementById("result8").innerHTML = arr + "<br>";
+			
+			res = "";
+			for(i = 0; i < arr.length; i++) {
+				
+				res += i + "번째 문자열 : " + arr[i] + "<br>";
+			}
+				document.getElementById("result8").innerHTML += res;;
+		}
+	
+</script>
+</head>
+<body>
+
+	<p>str = "우리 나라 좋은 나라 대한 민국";<p>
+	<h2>charAt(idx) : idx번째 문자를 추출한다.</h2>
+	<button type="button" onclick="proc1()">charAt</button>
+	<div id="result1"></div>
+	
+	<h2>charCodeAt(idx) : idx번째 문자의 Unicode값을 구한다.</h2>
+	<button type="button" onclick="proc2()">charCodeAt</button>
+	<div id="result2"></div>
+	
+	<h2>indexOf("문자") : "문자"가 앞에서부터 몇번째 index에 있는지 찾아서 출력</h2>
+	<button type="button" onclick="proc3()">indexOf</button>
+	<div id="result3"></div>
+
+	<h2>lastIndexOf("문자") : "문자"가 뒤에서부터 찾고 앞에서 몇번째 index에 있는지 찾아서 출력</h2>
+	<button type="button" onclick="proc4()">lastIndexOf</button>
+	<div id="result4"></div>
+	<br>
+	
+	<h2>substring(start, end) : start에서부터 end-1까지의 문자열을 추출</h2>
+	<button type="button" onclick="proc5()">lastIndexOf</button>
+	<div id="result5"></div>
+	<br>
+
+	<h2>slice(start, end) : start에서부터 end-1까지의 문자열을 자른다</h2>
+	<button type="button" onclick="proc6()">slice</button>
+	<div id="result6"></div>
+	<br>
+
+	<h2>substr(start, length): start에서부터 length갯수만큼 문자를 추출.</h2>
+	<button type="button" onclick="proc7()">substr</button>
+	<div id="result7"></div>
+	<br>
+
+	<h2>split(separator, limit): separator(구분자)를 기준으로 해서 문자열을 분리, 분리되는 문자 갯수</h2>
+	<button type="button" onclick="proc8()">split</button>
+	<div id="result8"></div>
+	<br>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/mycss.css">
+<style>
+	div {
+		width : 500px;
+	}
+</style>
+<script>
+	function winopen() {
+		window.open("winsub.html", "_blank", "width=500px height=400px");		
+	}
+</script>
+</head>
+<body>
+	새로운 창(자식창)에서 이름과 전화번호를 입력받아서<br>
+	현재창(부모창)의 div요소에 출력<br>
+	자식창에서 부모창을 나타내는 속성은 : opener<br>
+	<button type="button" onclick="winopen()">열기</button>
+	<br>
+	<div id="result1"></div>
+		
+</body>
+</html>

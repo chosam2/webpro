@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+img {
+	width: 200px;
+	height: 180px;
+}
+</style>
+<script>
+	arr_img = [ '../images/nike.png', '../images/nikeshoes.PNG',
+			'../images/soccer.jpg', '../images/nikeshoes2.jpg'];
+	window.onload = function() {
+		my_img = document.getElementById("image");
+
+		a = setInterval(function() {
+			idx = Math.floor(Math.random() * arr_img.length);
+			my_img.src = arr_img[idx];
+
+		}, 1000)
+		console.log(a);
+	}
+	
+	function changecolor() {
+		
+		b = setInterval(function() {
+			pp = document.getElementsByTagName('p')[0];
+			pp.style.background = 'yellow';
+			
+		}, 1000)
+		console.log(b);
+	}
+	
+	function stopTextColor() {
+		clearInterval(a);		
+	}
+</script>
+</head>
+<body>
+	<img id="image" src="../images/java.png">
+	<br><br>
+	<hr color='red'>
+	<br>
+	setInterval : A Number, representing the ID value of the timer that is set.<br>
+	Use this value with the clearInterval() method to cancel the timer<br>
+	<div id=target" onclick="changecolor()">
+		<p>This is a Text.</p>
+	</div>
+	<button onclick="stopTextColor()">중지</button>
+</body>
+</html>

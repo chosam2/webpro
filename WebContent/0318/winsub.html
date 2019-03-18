@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Sub Window</title>
+<script>
+	function proc1() {
+		
+		/* 이름으로 접근하는 방법 3가지 */
+		//document.getElementById("name")
+		//document.getElementsByName("name")[0]
+		nameVal = document.ff.name.value;
+		telVal = document.ff.tel.value;
+		
+		opener.document.getElementById("result1").innerHTML = 
+			"이름 : " + nameVal + "<br>" +
+			"전화번호 : " + telVal + "<br>";
+			
+		window.close();
+	}
+</script>
+</head>
+<body>
+	실행 버튼을 클릭하면 이름과 전화번호를 입력받아서 부모창으로 보낸다.<br>
+	<h1>Hello~~ sub</h1>
+	<form name="ff">
+		이름 : <input type="text" id="name" name="name"><br>
+		전화번호 : <input type="text" id="tel" name="tel"><br>
+		<button type="button" onclick="proc1()">실행</button>
+	</form>
+</body>
+</html>

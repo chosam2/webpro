@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+		rand = Math.floor(Math.random() * 100 + 1);
+	function test() {
+		// 입력한 수를 가져온다.
+		numValue = document.getElementById("number").value;
+		
+		try {
+			if(numValue < 1 || numValue > 100) {
+				throw("범위의 값이 아닙니다.");
+			} else if(numValue > rand) {
+				throw("더 작은수를 입력하세요.");
+			}else if(numValue < rand) {
+				throw("더 큰수를 입력하세요.");
+			} else if(numValue == rand) {
+				throw("정답입니다.");
+		}
+			
+		} catch(err) {
+			msg = "오류 메세지 : " + err;
+			document.getElementById("message").innerHTML = msg;
+		}
+	}
+</script>
+
+</head>
+<body>
+	<h1>1부터 100 사이의 숫자를 입력하세요.</h1>
+	<p>1부터 100 사이의 숫자를 입력하시오.</p>
+	<input id="number" type="text">
+	<button type="button" onclick="test()">숫자 추측</button>
+	<p id="message"></p>
+</body>
+</html>

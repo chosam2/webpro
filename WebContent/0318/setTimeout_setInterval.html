@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	p {
+		font-size : 1.5em;
+	}
+</style>
+
+<script>
+	window.onload = function() {
+		elep = document.getElementsByTagName('p')[0];	/* [0]안주면 elep가 복수형이 됨 */
+		elep.style.background = "yellow";
+	}
+	
+	 
+	window.setTimeout(function() {
+		r = Math.floor(Math.random() * 256);
+		g = Math.floor(Math.random() * 256);
+		b = Math.floor(Math.random() * 256);
+		elep.style.background = 'rgb(' + r + ',' + g + ',' + b + ')';
+	}, 500)
+
+	window.setInterval(function() {
+		p1 = document.getElementsByTagName('p')[1];
+		r = Math.floor(Math.random() * 256);
+		g = Math.floor(Math.random() * 256);
+		b = Math.floor(Math.random() * 256);
+		p1.style.background = 'rgb(' + r + ',' + g + ',' + b + ')';
+	}, 500)
+</script>
+</head>
+<body>
+	<h1>setTimeout(function(){}, 500)</h1>
+	setTime : 정해진 시간 경과후 한번 실행<br>
+	<p>무궁화 꽃이 피었습니다.</p>
+	<h1>setInterval(function(){}, 500)</h1>
+	setInterval : 정해진 시간이 경과할 때마다 실행<br>
+	<p>매화 꽃이 피었습니다.</p>
+</body>
+</html>

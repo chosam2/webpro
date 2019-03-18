@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<script>
+	// 두 개의 수를 입력받아서 나누기를 한다.
+	// 23/56	78/12	89/0
+	// 두번째 수가 0이면 오류가 발생
+	
+	try {
+		
+		num1 = prompt("첫번째 수를 입력하세요 : ");
+		num2 = prompt("두번째 수를 입력하세요 : ");
+		
+		res = num1 / num2;
+		//alert(res.toFixed(3));
+		//document.write(res.toFixed(3));
+	} catch(err) {
+		msg = "오류발생: " + err.message;
+		alert(msg);
+	}
+	
+	Infinity;
+	
+	
+</script>
+<body>
+</body>
+</html>

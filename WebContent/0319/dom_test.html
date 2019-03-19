@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+div {
+	border: 1px solid red;
+}
+
+img {
+	width : 100px;
+	height : 100px;
+}
+</style>
+<script>
+	window.onload = function() {
+
+		eleUl = document.getElementsByTagName('ul')[0];
+		liall = eleUl.getElementsByTagName('li'); // 'li'태그를 전부 가져올꺼라서 번호지정 안해줌.
+
+		for (i = 0; i < liall.length; i++) {
+			//alert(liall[i].firstChild.data);
+		}
+	}
+
+	function proc1() {
+		domul = document.getElementsByTagName('ul')[1]
+		domlist = domul.getElementsByTagName('li');
+
+		for (i = 0; i < domlist.length; i++) {
+			vimg = domlist[i].firstChild.data;
+
+			imgele = document.createElement('img');
+			imgele.src = "../images/" + vimg + ".jpg";
+			imgele.width = 100;
+			imgele.height = 100;
+			domlist[i].appendChild(imgele);
+
+		}
+	}
+
+	function proc2(ele) {
+		// ele : 클릭한 리스트 객체(li)
+		vimg = ele.firstChild.data; // always9를 얻어옴
+
+		imgele = document.createElement('img'); // img 태그 생성해줌.
+		imgele.src = "../images/" + vimg + ".jpg";
+		imgele.widht = 50;
+		imgele.height = 50;
+
+		ele.appendChild(imgele);
+	}
+
+	function proc3(text) { //'Hello'가 text에 들어간것임
+		node = document.createTextNode(text);
+		document.getElementById('target').appendChild(node);
+	}
+
+	function proc4() {
+		arr = [ "Hello", "Good Morning", "Happy", "안녕!!", "좋은아침", "행복한날" ];
+		idx = Math.floor(Math.random() * arr.length);
+
+		// p태그를 생성
+		ptag = document.createElement('p');
+		//tnode = document.createTextNode(text);
+		tnode = document.createTextNode(arr[idx]);
+
+		ptag.appendChild(tnode);
+		document.getElementById('d1').appendChild(ptag);
+
+		// textNode를 생성
+		// textNode를 p태그에 추가
+		// p태그를 div태그에 추가.
+	}
+
+	function removeproc() {
+		parent = document.getElementById('d1');
+		child = parent.lastChild;
+		
+		parent.removeChild(child);
+		// id가 d1인 요소에 접근해서
+		// 마지막 자식을 찾는다.
+		// 삭제한다.
+	}
+	
+	function srcproc() {
+		imgarr = ["soccer.jpg", "hotChocolate.jpg", "nike.png", "nikeshoes.PNG", "nikeshoes2.jpg"];
+		randIdx = Math.floor(Math.random() * imgarr.length);
+		document.getElementById('img1').src = "../images/" + imgarr[randIdx];
+	}
+</script>
+</head>
+<body>
+	<ul>
+		<li>홍길동</li>
+		<li>개나리</li>
+		<li>진달래</li>
+		<li>무궁화</li>
+		<li>삼천리</li>
+	</ul>
+	<hr>
+	버튼을 클릭하면 이미지를 표시
+	<br>
+	<button type="button" onclick="proc1()">실행</button>
+	<br>
+
+	<ul>
+		<li>always9<br></li>
+		<li>cafelatte<br></li>
+		<li>hotChocolate<br></li>
+		<li>soccer<br></li>
+	</ul>
+	<br>
+	<br>
+	<hr>
+	<br>
+	<br> 각 리스트를 클릭하면 이미지를 표시
+	<br>
+
+	<ul>
+		<li onclick="proc2(this)">always9<br></li>
+		<li onclick="proc2(this)">cafelatte<br></li>
+		<li onclick="proc2(this)">hotChocolate<br></li>
+		<li onclick="proc2(this)">soccer<br></li>
+	</ul>
+	<br>
+	<br>
+	<br>
+	<div onclick="proc3('Hello')">
+		클릭하세요 <span id="target"></span>
+	</div>
+	<br>
+	<br>
+	<br> 랜덤으로 글자 생성해서 찍는다.
+	<br>
+	<button type="button" onclick="removeproc()">삭제</button>
+	<div id="d1" onclick="proc4()">클릭하세요</div>
+	<br>
+	<br>
+	<br>
+	버튼을 클릭하면 이미지를 변경 -src속성 변경<br>
+	<button type="button" onclick="srcproc()">실행</button><br>
+	<img id="img1" src="../images/soccer.jpg">
+
+</body>
+</html>

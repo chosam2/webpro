@@ -20,33 +20,53 @@ img {
 			my_img.src = arr_img[idx];
 
 		}, 1000)
+		
 		console.log(a);
 	}
 	
 	function changecolor() {
 		
-		b = setInterval(function() {
+		bb = setInterval(function() {
 			pp = document.getElementsByTagName('p')[0];
-			pp.style.background = 'yellow';
+			r = Math.floor(Math.random() * 256);
+			g = Math.floor(Math.random() * 256);
+			b = Math.floor(Math.random() * 256);
+			pp.style.background = pp.style.background == 'yellow' ? 'green' : 'yellow';
+			//pp.style.background = 'rgb(' + r + ',' + g + ',' + b + ')';
+			
+			/* 
+			r = 34;
+			g = 200;
+			b = 128;
+			color = 'rbg('+ r + ',' + g + ',' + b + ')';
+			*/			
 			
 		}, 1000)
-		console.log(b);
+		console.log(bb);
+	}
+	
+	function stopChange() {
+		clearInterval(a);
 	}
 	
 	function stopTextColor() {
-		clearInterval(a);		
+		clearInterval(bb);
 	}
+	
+
 </script>
 </head>
 <body>
 	<img id="image" src="../images/java.png">
+	<br>
+	<button onclick="stopChange()">중지</button> 
 	<br><br>
 	<hr color='red'>
 	<br>
 	setInterval : A Number, representing the ID value of the timer that is set.<br>
 	Use this value with the clearInterval() method to cancel the timer<br>
 	<div id=target" onclick="changecolor()">
-		<p>This is a Text.</p>
+		<p>색깔 바꾸고싶으면 나를 클릭해라</p>
 	</div>
 	<button onclick="stopTextColor()">중지</button>
 </body>

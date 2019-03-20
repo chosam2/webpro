@@ -14,9 +14,9 @@ img {
 	function onoff() {
 
 		imgele = document.getElementById("img1");
-		
+
 		// match() : 일부분의 문자를 비교해서 있으면 문자를 리턴하고
-		
+
 		//alert(imgele.src);
 
 		// src의 값을 ==로 비교할 수 없다.
@@ -27,14 +27,15 @@ img {
 		} else {
 			alert('no');
 		}*/
-		
+
 		// ---------------------------------------------------
 		on_off_match = imgele.src.match('off.png');
-		
+
 		//alert(on_off_match);
-		
-		imgele.src = on_off_match == 'off.png' ? "../images/on.png" : "../images/off.png";
-		
+
+		imgele.src = on_off_match == 'off.png' ? "../images/on.png"
+				: "../images/off.png";
+
 	}
 </script>
 </head>

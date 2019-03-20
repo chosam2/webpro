@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	textarea {
+		font-size : 1.4em;
+		text-align: center;
+	}
+</style>
+
+<script>
+	function proc1() {
+		
+		f = document.ff;
+		input_name = f.name.value;
+		input_gender = f.gender.value;
+		
+		res = input_name + "씨!!\n";
+		res += "당신의 성별은 " + input_gender + "이고,\n";
+		res += "취미는 : ";
+		for(i = 0; i < f.hobby.length; i++) {
+			if(f.hobby[i].checked) {
+				res += f.hobby[i].value + " ";
+			}
+		}
+		res += "이군요\n";
+		f.area.value = res;
+	}
+</script>
+</head>
+<body>
+	<form name="ff">
+		이름 : 
+		<input name="name" type="text">
+		<br>
+		성별 : 
+		<input type="radio" name="gender" value="남자" checked>남
+		<input type="radio" name="gender" value="여자">여
+		<br>
+		취미 : 
+		<input type="checkbox" name="hobby" value="trip">여행
+		<input type="checkbox" name="hobby" value="reading">독서
+		<input type="checkbox" name="hobby" value="movie">영화감상
+		<input type="checkbox" name="hobby" value="alphago">바둑
+		<input type="checkbox" name="hobby" value="chess">장기
+		<input type="checkbox" name="hobby" value="climing">등산
+		<input type="checkbox" name="hobby" value="fishing">낚시
+		<br>
+		
+		<button type="button" onclick="proc1()">버튼</button>
+		<!-- <button>버튼?</button> -->
+		<br>
+		<textarea rows="30" cols="80" name="area"></textarea>
+		
+	</form>
+</body>
+</html>

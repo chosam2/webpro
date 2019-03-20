@@ -4,50 +4,108 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
-	table, tr,th {
-		border : 1px solid black;
-		height : 50px;
-	}
+table {
+	margin: auto;
+	width: 98%;
+	text-align: center;
+}
+
+tr, td, th {
+	border: 1px solid black;
+	height: 50px;
+}
+
+th:nth-child(odd) {
+	background: lightblue;
+}
+
+th:nth-child(even) {
+	background: lightyellow;
+}
+
+img {
+	width: 300px;
+	height: 300px;
+}
+
+button {
+	font-size : 20px;
+}
 </style>
 <script>
-	function proc2() {
-	
+	function proc1() {
+
+		me_img = document.getElementById("me");
+		com_img = document.getElementById("com");
+
 		arr = [ "가위", "바위", "보" ];
-	
+
 		rand = Math.floor(Math.random() * 3);
-	
+
 		com = arr[rand];
-		res = "com : " + com + "<br>";
-	
-		man = prompt("가위 바위 보 를 입력");
-	
-		res += "man : " + man + "<br>";
+
+		while(true) {
+			man = prompt("가위 바위 보 를 입력", "가위 바위 보");
+			if(man == "가위" || man == "바위" || man == "보") {
+				break;
+			}
+		}
+		res = "사람 : " + man + " VS " + "컴퓨터 : " + com + "<br>";
+		if (man == "가위") {
+			me_img.src = "../images/me_scissors.png";
+		} else if (man == "바위") {
+			me_img.src = "../images/me_rock.png";
+		} else if (man == "보") {
+			me_img.src = "../images/me_paper.jpg";
+		} 
+
+		if (com == "가위") {
+			com_img.src = "../images/com_scissors.png";
+		} else if (com == "바위") {
+			com_img.src = "../images/com_rock.jpg";
+		} else if (com == "보") {
+			com_img.src = "../images/com_paper.png";
+		}
+
 		if (com == "가위" && man == "바위" || com == "바위" && man == "보"
 				|| com == "보" && man == "가위") {
-			res += "man이 이겼습니다."
+			res += "사람이 이겼습니다."
 		} else if (com == "가위" && man == "보" || com == "바위" && man == "가위"
 				|| com == "보" && man == "바위") {
-			res += "man이 졌습니다."
+			res += "사람이 졌습니다."
+		} else if(com == "가위" && man == "가위" || com == "바위" && man == "바위"
+				|| com == "보" && man == "보" ){
+			res += "사람과 컴퓨터가 비겼습니다."
 		} else {
-			res += "man과 com이 비겼습니다."
+			res += "똑바로 입력해라 진짜.."
 		}
-	
-		document.getElementById("result2").innerHTML = res;
-	
+
+		document.getElementById("result1").innerHTML = res;
+
 	}
 </script>
 </head>
 <body>
-	<table style="width:90%">
+	<table border="1px" style="width: 90%">
+		<caption>
+			<button type="button" onclick="proc1()">가위바위보</button>
+		</caption>
+
 		<tr>
 			<th>사람</th>
-			<th>COM</th>
+			<th>컴퓨터</th>
 		</tr>
 
 		<tr>
-			<th>???</th>
-			<th>???</th>
+			<td><img id="me" src="../images/me_rock.png"></td>
+			<td><img id="com" src="../images/com_rock.jpg"></td>
 		</tr>
+
+		<tr>
+			<td colspan="2" id="result1"></td>
+		</tr>
+		
+		
 	</table>
 
 </body>

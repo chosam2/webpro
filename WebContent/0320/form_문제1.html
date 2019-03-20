@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+* {
+	/* text-align : center; */
+	
+}
+
+div {
+	width: 500px;
+	margin: auto;
+}
+
+#result2 {
+	border: 1px dotted red;
+	height: 400px;
+	padding: 20px;
+	margin: auto;
+}
+
+textarea {
+	text-align: center;
+	font-size: 20px;
+}
+
+p {
+	text-align: center;
+	font-size: 20px;
+}
+</style>
+<script>
+	function guguPro1() {
+		input = document.getElementsByTagName("input")[0].value;
+		str = input + "단\n\n";
+		for (i = 1; i <= 9; i++) {
+			str += input + " * " + i + " = " + (input * i) + "\n";
+		}
+		document.getElementsByTagName("textarea")[0].textContent = str;
+	}
+
+	function guguPro2() {
+		danvalue = document.ff.seldan.value;
+		
+		res = "***" + danvalue + "단***<br><br>";
+		for(i = 1; i <= 9; i++) {
+			res += danvalue +  " * " + i + " = " + danvalue * i + "<br>";
+		}
+		document.getElementById("result2").innerHTML = res;
+	}
+</script>
+</head>
+<body>
+	<div>
+		<h3>text입력필드에서 단을 입력받아서 textarea에 출력</h3>
+		<br> 일정한 값을 script에서 value를 이용해서 가져가서 textarea에 구구단을 찍는다. 
+		<input
+			id="dan" type="text" size='3'>단
+		<button type="button" onclick="guguPro1()">출력</button>
+		<br>
+		<br>
+		<textarea rows="15" cols="40"></textarea>
+	</div>
+	<hr><br>
+	
+	<form name="ff">
+	<div>
+	<h3>select로 선택하고 div에 출력</h3>
+	<select name="seldan" onclick="guguPro2()">
+		<option value="2">2단</option>
+		<option value="3">3단</option>
+		<option value="4">4단</option>
+		<option value="5">5단</option>
+		<option value="6">6단</option>
+		<option value="7">7단</option>
+		<option value="8">8단</option>
+		<option value="9">9단</option>
+	</select>
+	<button type="button" onclick="guguPro2()">출력</button>
+	<p id="result2"></p>
+	</div>
+	</form>
+</body>
+</html>

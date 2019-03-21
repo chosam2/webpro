@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+img {
+	width: 180px;
+	height: 150px;
+}
+
+div {
+	width: 80%;
+	height: 300px;
+	border: 1px solid red;
+}
+</style>
+<script>
+	function dropEvent(event) {
+		imgid = event.dataTransfer.getData("target_img");
+
+		//alert(event.target.tagName);
+		// event.target.appendChild(document.getElementById(imgid);
+		// event.target = div요소에 이미지를 추가
+		
+		//------------------------------------------------------------------
+
+		// 이미지위에 다른 이미지를 drop하면 
+		// event.target 이 div가 아니고 img 가 되어 이미지가 사라지게된다.
+		// 이를 방지하기 위해서 이미지위에 다른 이미지를 drop하더라도
+		// event.target를 div로 바꾸어준다.
+		if (event.target.tagName == "IMG") {
+			event.target.parentNode.appendChild(document.getElementById(imgid));
+		} else{
+			event.target.appendChild(document.getElementById(imgid));
+		}
+	}
+
+	function dragOver(event) {
+		event.preventDefault(); // 
+	}
+
+	function dragStart(event) {
+		// 이벤트 대상
+		//event.target.id;
+		//event.target.tagName();
+
+		event.dataTransfer.setData("target_img", event.target.id);
+	}
+
+	function goPage() {
+		event.preventDefault(); // 원래 고유의 이벤트 내용을 시행하지 않도록 -> 클릭해도 안넘어감(a태그의 기능 막음)
+	}
+</script>
+</head>
+<body ondrop = "dropEvent(event)" ondragover="dragOver(event)">
+	<br>
+	<a onclick="goPage()" href="http://www.naver.com" target="_blank">네이버</a>
+	<h2>원하는 물건을 끌어서 옮기세요.</h2>
+	<br>
+	<div id="result" ondrop="dropEvent(event)" ondragover="dragOver(event)">
+
+	</div>
+	<br>
+	<br>
+
+	<img id="img1" src="../images/cafelatte.jpg" draggable="true"
+		ondragstart="dragStart(event)">
+	<img id="img2" src="../images/americano.jpg" draggable="true"
+		ondragstart="dragStart(event)">
+	<img id="img3" src="../images/hotChocolate.jpg" draggable="true"
+		ondragstart="dragStart(event)">
+	<img id="img4" src="../images/java.png" draggable="true"
+		ondragstart="dragStart(event)">
+
+</body>
+</html>

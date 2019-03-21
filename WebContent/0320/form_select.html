@@ -16,6 +16,7 @@
 	
 	select {
 		width : 150px;
+		height : 300px;
 	}
 	
 	input[type=button] {
@@ -35,7 +36,100 @@
 	function addPro() {
 		
 		f = document.ff;
-		alert(f.txt.value);
+		//alert(f.txt.value);
+		
+		// 입력한 값
+		tmp = f.txt.value;
+		
+		// 입력값이 공백이면 추가하지 않는다.
+		if(tmp.trim().length == 0) {
+			alert("추가할 데이터를 입력하세요");
+			f.txt.focus();
+			return;
+		}
+		
+		// option을 새롭게 생성한다.
+		opt = document.createElement('option');	// <option value="val">test</option>
+		opt.value = tmp;
+		opt.text = tmp;
+		
+		f.llist.appendChild(opt);
+		
+		// 입력한 값 지우고 커서를 옮긴다.
+		f.txt.value = "";
+		f.txt.focus();
+	}
+	
+	function toRight() {
+		// 왼쪽에서 항목을 하나씩 선택해서 오른쪽으로 보낸다.
+		idx = f.llist.selectedIndex;
+		// alert(idx);
+		
+		// 선택된 항목이 없다면
+		if(idx == -1) {
+			alert("항목을 선택하세요")
+			return;
+		}
+		
+		// 선택 항목이 있다면 왼쪽에 있는 options들 중에서 선택한 번째의 값
+		lvalue = f.llist.options[idx].value;
+		
+		// 값을 오른쪽으로 옮기고 왼쪽의 값은 지워라.
+		
+		opt = document.createElement('option');
+		opt.value = lvalue;
+		opt.text = lvalue;
+		
+		// 오른쪽에 추가한다.
+		f.rlist.appendChild(opt);
+		
+		//왼쪽항목 지우기 - 선택한 번째의 항목
+		f.llist.removeChild(f.llist.options[idx]);
+		
+	}
+	
+	// 왼쪽에서 오른쪽으로 전체 보내기
+	function toRightAll() {
+		
+		leng = f.llist.length;
+		
+		for(i = 0; i < leng; i++) {
+			lvalue = f.llist.options[0].value;
+			
+			opt = document.createElement('option');
+			opt.value = lvalue;
+			opt.text = lvalue;
+			
+			f.rlist.appendChild(opt);
+			
+			f.llist.removeChild(f.llist.options[0]);
+		}
+		
+	}
+	
+	function toLeft() {
+		idx = f.rlist.selectedIndex;
+		
+		if(idx == -1) {
+			alert("항목을 선택하세요.");
+			return;
+		}
+		
+		rvalue = f.rlist.options[idx].value;
+		
+		opt = document.createElement('option');
+		opt.value = rvalue;
+		opt.text = rvalue;
+		
+		f.llist.appendChild(opt);
+		
+		f.rlist.removeChild(f.rlist.options[idx]);
+		
+	}
+	
+	function toLeftAll() {
+		
+		
 	}
 </script>
 </head>
@@ -49,10 +143,10 @@
 			<tr>
 				<td><select name="llist" size="15"></select></td>
 				<td>
-					<input class="btn" type="button" value=">"><br><br>
-					<input class="btn" type="button" value=">>"><br><br>
-					<input class="btn" type="button" value="<"><br><br>
-					<input class="btn" type="button" value="<<"><br><br>
+					<input class="btn" type="button" value=">" onclick="toRight()"><br><br>
+					<input class="btn" type="button" value=">>" onclick="toRightAll()"><br><br>
+					<input class="btn" type="button" value="<" onclick="toLeft()"><br><br>
+					<input class="btn" type="button" value="<<" onclick="toLeftAll()"><br><br>
 				</td>
 				<td><select name="rlist" size="15"></select></td>
 			</tr>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	window.onload = function() {
+		f = document.ff;
+		
+		f.name.focus();
+		
+	}
+	function proc1() {
+		
+		// 입력한 값들을 value를 이용해서 가져온다 - 공백검증
+		name = f.name.value;
+		if(name.trim().length == 0) {
+			alert("이름 입력하세요.");
+			f.name.focus();
+			return;
+		}
+		id = f.id.value;
+		if(id.trim().length < 5 || id.trim().length > 10) {
+			alert("5~10자리 사이로 입력하세요");
+			f.id.focus();
+			return;
+		}
+		email = f.email.value;
+		if(email.trim().length == 0) {
+			alert("이메일 입력하세요");
+			f.email.focus();
+			return;
+		}
+		phone = f.phone.value;
+		if(phone.trim().length == 0) {
+			alert("휴대폰 번호를 입력하세요.");
+			f.phone.focus();
+			return;
+		}
+		
+		// 모두 검증을 통과했을때
+		f.submit();
+	}
+</script>
+</head>
+<body>
+<form action="aa.jsp" method="post" name="ff">
+	이름 : <input type="text" id="name"><br>
+	아이디 : (6-8 문자):
+	<input type="text" id = "id" name="id"><br>
+	이메일 : <input type="email" id="email" name="eamil"><br>
+	휴대폰 : <input type="tel" id="phone" name="phone"><br>
+	
+	<input type="button" onclick="proc1()" value="전송">
+	<input type="reset" value="초기화"><br>
+	
+</form>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+
+	function changeColor(c) {
+		document.body.style.backgroundColor = c;
+	}
+	
+	function sub() {
+		
+		txt = document.getElementById("name").value;
+		
+		//txt.toUpperCase();
+		document.getElementById("name").value = txt.toLowerCase();
+	}
+	
+	function OnButtonDown(t) {
+		t.style.color = "red";
+	}
+	
+	function OnbuttonUp(t) {
+		t.style.backgroundColor = "yellow";
+		
+	}
+
+	function OnButtonClick(t) {
+		t.style.fontSize = "1.5em";
+	}
+	
+</script>
+</head>
+<body>
+	<form method="POST">
+		<input type="radio" name="C1" value="v1"
+			onclick="changeColor('lightblue')">파란색
+
+		<input type="radio" name="C1" value="v2"
+			onclick="changeColor('lightgreen')">녹색
+	</form>
+	
+	<br><br>
+	<hr>
+	<br>
+	<input type="text" id="name" onchange="sub()">
+	<p>대문자로 입력하고 입력필드를 벗어나면 소문자로 변경됩니다.</p>
+	
+	<br>
+	<br>
+	<hr>
+	<br>
+	<button onmousedown="OnButtonDown(this)">버튼 Down!</button>
+	
+	<button onmouseup="OnbuttonUp(this)">버튼 Up!</button>
+	
+	<button onclick="OnButtonClick(this)">버튼 Click!</button>
+</body>
+</html>

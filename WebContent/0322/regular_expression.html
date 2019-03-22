@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>정규식</title>
+<script>
+window.onload = function() {
+	f = document.ff;
+	
+	f.name.focus();
+	
+}
+
+/*
+1. 	입력값(문자열).match(패턴문자/정규식) => 
+ 	입력값(문자열)에서 패턴정규식에 맞는 값이 있느냐?
+		 있으면 문자열을 배열로 리턴
+		 없으면 null을 리턴
+2.  정규식패턴문자.test(입력문자열) ==>
+ 	입력문자열이 정규식에 맞으면 true, 맞지 않으면 false 를
+ 	
+ 	
+3. 	정규식패턴문자.exec(입력문자열) ==>
+ 	입력값(문자열)에서 패턴정규식에 맞는 값이 있느냐?
+ 		있으면 문자열을 배열로 return;
+ 		없으면 null return;
+*/ 			
+	function proc1() {
+		
+		f = document.ff;
+		// 1. 이름 규칙 검사-------------
+		// 입력한 값
+		namevalue = f.name.value;
+		
+		// 입력한 값을 비교하는 규칙(정규식)
+		// 한글 또는 영문으로 입력
+		nameReg =  /^[가-힣]{2,6}$|^[a-zA-Z]{5,10}$/;
+		if(!(nameReg.test(namevalue))){
+			alert("이름오류");
+			return;
+		}
+		// 2. 아이디 규칙 검사
+		// 입력한 값
+		idvalue = f.id.value;
+		// 정규식 :소문자로 시작 시작하고 대문자나 숫자가 온다, 자릿수 :( 총 자릿수 : 8~10)
+		idReg = /^[a-z][A-Z0-9]{7,9}$/;
+		//alert(idReg.test(idvalue));
+		if(!(idReg.test(idvalue))) {
+			alert("아이디 오류");
+			return;
+		}
+		
+		// 3. 이메일 규칙 검사
+		// 입력한 값
+		emailvalue = f.email.value;
+		emailReg = /^[0-9a-zA-Z]+@[0-9a-zA-Z_-]+(\.[0-9a-zA-Z_-]+){1,2}$/;
+		if(!(emailReg.test(emailvalue))) {
+			alert("이메일 오류");
+			return;
+		}
+		// 4. 전화 번호 규칙 검사
+		// 임의 값
+		phonevalue = f.phone.value;
+		//정규식
+		phoneReg = /^\d{3}-\d{4}-\d{4}$/;
+		if(!(phoneReg.test(phonevalue))) {
+			alert("전화번호 오류");
+			return;
+		}
+		f.submit();
+	}
+</script>
+</head>
+<body>
+	<form action="../0321/aa.jsp" method="post" name="ff">
+	이름 : <input type="text" id="name"><br>
+	아이디 : (8-10 문자):
+	<input type="text" id = "id" name="id"><br>
+	이메일 : <input type="email" id="email" name="eamil"><br>
+	휴대폰 : <input type="tel" id="phone" name="phone"><br>
+	
+	<input type="button" onclick="proc1()" value="전송">
+	<input type="reset" value="초기화"><br>
+</form>
+</body>
+</html>

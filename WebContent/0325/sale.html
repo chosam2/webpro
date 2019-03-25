@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	#main {
+		border : 1px solid red;
+		width : 2170px;
+		height : 1000px;
+		background : gray;
+		text-align : center;
+		
+	}
+	
+	.box {
+		border : 1px solid blue;
+		/* float : left; */
+		/* display : inline-block; */
+		float : left;
+		padding : 10px;
+		margin : 10px;
+		width : 500px;
+		height : 700px;
+		background : lightgray;
+	}
+	
+	.box img {
+		/* border : 2px solid red; */
+		/* margin : 10px;
+		padding : 10px; */
+	}
+</style>
+
+<script>
+	window.onload = function() {
+		// box라는 class로 접근
+		boxes = document.getElementsByClassName("box");
+		
+		for(i = 0; i < boxes.length; i++) {
+			boxes[i].addEventListener("click", sales);
+		}
+	}
+	
+/* 
+	태그 내에서 onclick=sales(this)로 호출시
+	function sales(t) {
+	
+	
+}
+*/	
+	ptag = null;
+	function sales() {
+		
+		// p태그가 이미 만들어져 있느냐? 있으면 삭제하라(덮어쓰기)
+		if(ptag != null) {
+			// id를 이용해서 p태그에 접근
+			pid = document.getElementById("sale");
+			
+			// p태그의 부모에 접근해서 p태그를 삭제한다.
+			pid.parentNode.removeChild(pid);
+		}
+		
+		// 랜덤 발생 5 ~ 10
+		rand = Math.floor(Math.random() * 6) + 5;
+		// 할인율 출력 : ex)할인률8%
+		
+		// 새로운 p태그를 생성 - createElement('p')
+		ptag = document.createElement("p");
+		// 속성 설정
+		ptag.setAttribute('id', 'sale');
+	
+		// 문자 생성 : createTextNode("할인율8%")
+		text = document.createTextNode('할인율 : ' + rand + " %");
+		
+		// p태그에 문자를 추가한다 - appendChild()
+		ptag.appendChild(text);
+		
+		// 클릭한 box에 p태그를 추가
+		this.appendChild(ptag);
+		
+		// 클릭이벤트를 제거  --> 생성하고 또 클릭하면 sales함수 또 호출되므로 기존의 p태그를 지우고 새로적음.
+		this.removeEventListener('click', sales);		
+	}
+</script>
+
+</head>
+<body>
+<!-- 
+	<div id = "main">
+	
+		<div class="box" onclick="sales(this)">
+			<img src="../images/always9.jpg">
+		</div>
+
+		<div class="box" onclick="sales(this)">
+			<img src="../images/always9.jpg">
+		</div>
+
+		<div class="box" onclick="sales(this)">
+			<img src="../images/always9.jpg">
+		</div>
+
+		<div class="box" onclick="sales(this)">
+			<img src="../images/always9.jpg">
+		</div>
+		
+	</div>
+-->
+
+이벤트 (이벤트 핸들러) 설정 등록 : <br>
+	-- >> box.addEventListener('click', sales)<br><br>
+	 
+	 <div id = "main">
+		<div class="box">
+			<img src="../images/always9.jpg">
+		</div>
+
+		<div class="box">
+			<img src="../images/bike.jpg">
+		</div>
+
+		<div class="box">
+			<img src="../images/americano.jpg">
+		</div>
+
+		<div class="box">
+			<img src="../images/cafelatte.jpg">
+		</div>
+		
+	</div>
+</body>
+</html>

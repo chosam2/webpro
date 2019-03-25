@@ -23,6 +23,7 @@ label {
 table {
 	border-collapse : collapse;
 	display : none;
+	width : 1ppppx;
 }
 
 #blist th {
@@ -30,14 +31,34 @@ table {
 	
 }
 
+.cont {
+	display : none;
+}
+
 </style>
 
 <script>
 	function view(clicktr) {
-		
+		f = document.board;
 		// table에서 내용을 가져다가 입력 폼에 다시 출력한다.
+		// 매개변수 clicktr은 클릭한 tr을 받은 변수z
+		tdlist = clicktr.getElementsByTagName('td');
+		f.num.value = tdlist[0].textContent;
+		
+		f.writer.value = tdlist[1].textContent;
+		f.title.value = tdlist[2].textContent;
+		//f.content.value = cvalue;
+		// td를 별도로 만들었을 경우
+		f.content.value = tdlist[5].textContent;
+		
+		// 3번째 td의 날짜 속에 input type="hidden" 으로 했을경우
+		// f.content.value = clicktr.getElementsByClassName('cont')[0].value
+		
+		// 4번째 td를 별도로 만들고 class이름을 cont로 했을경우
+		// f.content.value = clicktr.getElementsByClassName('cont')[0].textContent
 	}
-
+	
+	num = 1;
 	function proc1() {
 		f = document.board;
 		// 입력한 값을 가져온다.
@@ -75,10 +96,14 @@ table {
 										// view()함수를 호출하고 매개변수로 this를 반환한다.
 		
 		// td에 입력한 값으로 설정한다.
-		tdtag = "<td>" + wvalue + "</td>";
+		
+		tdtag = "<td>" + num + "</td>";
+		tdtag += "<td>" + wvalue + "</td>";
 		tdtag += "<td>" + tvalue + "</td>";
 		tdtag += "<td>" + content10 + "</td>";
-		tdtag += "<td>" + datevalue + "</td>";
+		tdtag += "<td>" + datevalue + "</td>"; 
+		tdtag += "<td class='cont'>" + cvalue + "</td>";	
+		num++;
 		
 		// newtr에 tdtag값을 출력한다.
 		newtr.innerHTML = tdtag;
@@ -96,7 +121,39 @@ table {
 		f.content.value="";
 		f.writer.focus();
 	}
-</script>
+	
+	function modify() {
+		
+		// 새롭게 수정한 내용을 가져온다. - value
+		// hidden으로 되어있는 num도 같이 가져온다 - value
+		numvalue = f.num.value;
+		wvalue = f.writer.value;
+		tvalue = f.title.value;
+		cvalue = f.content.value;
+		
+		content10 = cvalue;
+		if(cvalue.length > 10) {
+			content10 = cvalue.substr(0,10) + ".....";//substr(0,10) 0부터 10개 // cvalue.substring(0,10) -> 범위(0~10앞까지)
+		}
+		
+		today = new Date();
+		datevalue = today.toLocaleDateString();
+		
+		// numvalue 와 table의 번호와 같은 행의 내용을 수정한다.
+		
+		trtag = document.getElementsByTagName('tr')[numvalue];
+		trtag.getElementsByTagName('td')[1].textContent = wvalue;
+		trtag.getElementsByTagName('td')[2].textContent = tvalue;
+		trtag.getElementsByTagName('td')[3].textContent = content10;
+		trtag.getElementsByTagName('td')[4].textContent = datevalue;
+		trtag.getElementsByTagName('td')[5].textContent = cvalue;
+		
+		f.writer.value = "";
+		f.title.value = "";
+		f.content.value="";
+		f.writer.focus();
+	}
+	</script>
 </head>
 <body>
 저장 버튼을 클릭하면 입력한값을 가지고 form밑으로 <br>
@@ -108,6 +165,7 @@ tbody에 추가한다.
 		<div>
 			<label for="writer">작성자 </label> 
 			<input type="text" id="writer" name="writer"><br>
+			<input type="hidden" name="num">
 		</div>
 
 		<div>
@@ -122,12 +180,14 @@ tbody에 추가한다.
 
 		<input type="button" value="저장" onclick="proc1()">
 		<input type="reset" value="취소">
+		<input type="button" value="수정" onclick="modify()">
 	</form>
 	<br><br>
 	<hr color="blue">
 	<table id="blist" border="1">
 		<thead>
-			<tr>
+			<tr>z
+				<th>번호</th>
 				<th>작성자</th>
 				<th>제목</th>
 				<th>내용</th>

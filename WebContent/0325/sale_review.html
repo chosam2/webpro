@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	#main {
+		border : 1px solid red;
+		width : 2170px;
+		height : 800px;
+		background : gray;
+		text-align: center;
+		margin : auto;
+	}
+
+	.box {
+		border : 1px solid blue;
+		float : left;
+		padding : 10px;
+		margin : 10px;
+		width : 500px;
+		height : 700px;
+		background : lightgray;
+	}
+</style>
+
+<script>
+	window.onload = function() {
+		boxes = document.getElementsByClassName("box");
+		
+		for(i = 0; i < boxes.length; i++) {
+			boxes[i].addEventListener("click", sales);
+		}
+	}
+	
+	ptag = null;
+	function sales() {
+	/* 	if(ptag != null) {
+			pid = document.getElementById("sale");
+			
+			pid.parentNode.removeChild(pid);
+		} */
+		
+		rand = Math.floor(Math.random() * 6) + 5;
+		
+		ptag = document.createElement("p");
+		
+		ptag.setAttribute('id', 'sale');
+		
+		text = document.createTextNode('할인율: ' + rand + " %");
+		
+		ptag.appendChild(text);
+		
+		this.appendChild(ptag);
+		
+		this.removeEventListener('click', sales);
+	}
+	
+</script>
+</head>
+<body>
+	<div id="main">
+	
+		<div class="box">
+			<img src="../images/always9.jpg">
+		</div>
+
+		<div class="box">
+			<img src="../images/always9.jpg">
+		</div>
+
+		<div class="box">
+			<img src="../images/always9.jpg">
+		</div>
+
+		<div class="box">
+			<img src="../images/always9.jpg">
+		</div>
+		
+	</div>
+</body>
+</html>

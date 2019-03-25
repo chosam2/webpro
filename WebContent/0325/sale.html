@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+dd<!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -10,7 +10,6 @@
 		height : 1000px;
 		background : gray;
 		text-align : center;
-		
 	}
 	
 	.box {
@@ -29,6 +28,15 @@
 		/* border : 2px solid red; */
 		/* margin : 10px;
 		padding : 10px; */
+	}
+	
+	#sale {
+		color : red;
+		font-size : 50px;
+	}
+	
+	h1 {
+		text-align: center;
 	}
 </style>
 
@@ -53,7 +61,7 @@
 	function sales() {
 		
 		// p태그가 이미 만들어져 있느냐? 있으면 삭제하라(덮어쓰기)
-		if(ptag != null) {
+ 		if(ptag != null) {
 			// id를 이용해서 p태그에 접근
 			pid = document.getElementById("sale");
 			
@@ -80,7 +88,7 @@
 		this.appendChild(ptag);
 		
 		// 클릭이벤트를 제거  --> 생성하고 또 클릭하면 sales함수 또 호출되므로 기존의 p태그를 지우고 새로적음.
-		this.removeEventListener('click', sales);		
+		this.removeEventListener('click', sales);
 	}
 </script>
 
@@ -110,7 +118,7 @@
 
 이벤트 (이벤트 핸들러) 설정 등록 : <br>
 	-- >> box.addEventListener('click', sales)<br><br>
-	 
+	 <h1> 랜덤으로 할인율이 결정됩니다! 클릭해보세요!</h1>
 	 <div id = "main">
 		<div class="box">
 			<img src="../images/always9.jpg">

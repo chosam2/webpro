@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" name="viewport"
+	content="width=device-width, initial-scale=1">
+<!-- link는 외부스타일시트 -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<title>QnA 수정본</title>
+<style>
+.accordion {
+	background: #eeefff;
+	padding: 15px;
+	width: 100%;
+	border: 2px solid lightgray;
+	text-size: 15px;
+	text-align: left;
+}
+
+.accordion:hover {
+	background: lightblue;
+}
+
+.pinfo {
+	width: 80%;
+	float: left;
+}
+
+.pbutton {
+	text-align: right;
+}
+
+label {
+	display: inline-block;
+	width: 70px;
+	height: 30px;
+}
+.rep {
+	background : #ffd3dd;
+	border : 1px solid gray;
+	margin : 4px;
+}
+</style>
+<script>
+	code = "";
+	window.onload = function() {
+		rand = Math.floor(Math.random() * 5) + 3;
+		for(i = 1; i < rand; i++) {
+			
+			code +='<div class="panel panel-default">';
+			code +='<h4 class="panel-title">';
+			code +='<button class="accordion" data-toggle="collapse" data-parent="#parent" href="#collapse'+ i + '">안녕돔</button>';
+			code +='</h4>';
+			
+			code +='     <div id="collapse' + i + '" class="panel-collapse collapse">';
+		
+			code +='     <div class="panel-body">';
+			code +='     <p class="pinfo">작성자 : 관리자 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+			code +='       작성일 : 2019.03.12 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+			code +='       조회수 : 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+			code +='     </p>';
+			code +='      	<p class="pbutton">';
+			code +='       		<button idx=" ' + i + ' " name="modify" class="action">수정</button>';
+			code +='       		<button idx=" ' + i + ' " name="delete" class="action">삭제</button>';
+			code +='       	</p>';
+			
+			code +='       	<hr>';
+			code +='       	<p class="pinfo">';
+			code +='       		내용출력<br>';
+			code +='       		내용출력<br>';
+			code +='       		내용출력<br>';
+			code +='       		내용출력<br>';
+			code +='       	</p>';
+			
+			
+			code +=			'<p>'
+			code += 			'<textarea class="area" cols="100"></textarea>'
+			code +=				'<button style="height:45px; vertical-align:top;" idx=" ' + i + ' " class="action" name="reply">등록</button>';			
+			code +=			'</p>';
+			code += 		'<div></div>';	// <p>태그랑 형제라인
+			
+			
+			code +='       </div>';
+			code +='     </div>';
+			code +='   </div>';
+		}
+		document.getElementById('parent').innerHTML = code;
+		
+		// 수정, 삭제 버튼의 이벤트 리스너 등록
+		alist = document.getElementsByClassName("action");
+		for(i = 0; i < alist.length; i++) {
+			
+			alist[i].addEventListener("click", actionProc);	// actionProc함수명
+		}
+		
+	}
+	
+	   function actionProc(){
+		      
+		      nameattr = this.getAttribute('name');
+		      idxattr = this.getAttribute('idx');
+		      
+		      if(nameattr == "delete"){
+		         deletPro();
+		      }else if(nameattr == "modify"){
+		         modifyPro();
+		      }else if(nameattr == "reply"){
+		    	  replyPro();
+		      }
+		      
+		      alert(nameattr + " " + idxattr);
+		   }
+	   function deletPro(){
+	      alert("삭제처리")
+	   }
+	   function modifyPro(){
+	      alert("수정처리")
+	   }
+	   function replyPro(){
+			action = event.target;	// 댓글등록버튼
+			// 작성자 날짜 내용출력
+			// 작성자 랜덤 영문자로 발생
+			
+			// 대문자
+			nansu1 = String.fromCharCode(Math.random() * 26 + 65);
+			// 소문자
+			nansu2 = String.fromCharCode(Math.random() * 26 + 97);
+			nansu3 = Math.floor(Math.random() * 100 + 1);
+			
+			// 댓글 번호로 사용될 랜덤 발생
+			nansu4 = Math.floor(Math.random() * 100 + 1);
+			name = nansu1 + nansu2 + nansu3;
+			
+			today = new Date();
+			today = today.toLocaleString();	// 날짜 시간
+			
+			// 입력한 댓글 내용을 가져오기
+			area = action.parentNode.getElementsByClassName("area")[0].value;	// className이 area인거는 한개뿐임. 그거의 0번째에 있는 내용을 가져오겠다.
+			
+			// 입력한 textarea의 내용을 지운다. - 다음 입력받기 위해서 
+			action.parentNode.getElementsByClassName('area')[0].value = "";
+			
+			// 엔터기호를(\r\n)  <br>태그로 바꾸기	엔터키의 의미는 : \r 은 캐리지 리턴, \n은 줄바꿈
+			area = area.replace(/\r/g, "").replace(/\n/g, "<br>");
+			
+			
+			rep = "";
+			rep += ' <div class="panel-body rep">';    // class명을 여러개 줄 수 있다.                                               
+
+			rep += ' <p class="pinfo"><span>작성자 :' +  name + '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';     
+			rep += '작성일 : ' + today + '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>';
+			rep += '<br><br><span class-"cont">' + area + '</span>';
+			rep += ' </p>';                                 
+			
+			rep += '  	<p class="pbutton">';                                                     
+			rep += '   		<button idx=" ' + nansu4 + ' " name="r_modify" class="action">댓글수정</button>';  
+			rep += '   		<button idx=" ' + nansu4 + ' " name="r_delete" class="action">댓글삭제</button>';  
+			rep += '   	</p>';                                                                    
+			rep += '</div>';
+			   	
+			action.parentNode.nextElementSibling.innerHTML += rep;
+			
+			alist = document.getElementsByClassName("action");
+			for(i = 0; i < alist.length; i++) {
+				
+				alist[i].addEventListener("click", actionProc);	// actionProc함수명
+			}
+	   }
+		   
+	
+	// 글쓰기 모달창에서 데이터 입력후 확인버튼 클릭
+	function saveData() {
+		
+		f = document.board;
+		
+		wvalue = f.writer.value;
+		tvalue = f.title.value;
+		cvalue = f.content.value;
+
+		alert(wvalue + " " + tvalue + " " + cvalue);
+		
+		f.writer.value = "";
+		f.title.value = "";
+		f.content.value = "";
+		
+		// 모달창 닫기
+		$document.getElementById("myModal").modal("hide");
+	}
+</script>
+</head>
+<body>
+		<h2>QnA 수정본</h2>
+		<br>
+		<button type="button" class="btn btn-success btn-md"
+			data-toggle="modal" data-target="#myModal">글쓰기</button>
+		<br> <br>
+	<div class="panel-group" id="parent">
+	</div>
+
+	<!-- Modal -->
+	<div class="modal fade" id="myModal" role="dialog">
+		<div class="modal-dialog modal-lg">
+			<!-- modal-lg빼면 default사이즈임 -->
+			<div class="modal-content">
+
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Modal Header</h4>
+				</div>
+
+				<div class="modal-body">
+
+					<form action="aa.jsp" method="post" name="board">
+						<h1>게시판</h1>
+						<div>
+							<label for="writer">작성자 </label> <input type="text" id="writer"
+								name="writer"><br> <input type="hidden" name="num">
+						</div>
+
+						<div>
+							<label for="title">제&nbsp;&nbsp;&nbsp;목</label> <input
+								type="text" id="title" name="title"><br>
+						</div>
+
+						<div>
+							<label for="content">내용</label><br>
+							<textarea rows="20" cols="80" id="content" name="content"></textarea>
+						</div>
+
+						<input type="button" value="저장" onclick="saveData()"
+							class="btn btn-primary"> <input type="reset" value="취소"
+							class="btn btn-warning">
+					</form>
+
+				</div>
+
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

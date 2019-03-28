@@ -1,0 +1,109 @@
+<style>
+   .navlogo{
+      background: #8CBDED;
+      height: 120px;
+   }
+   #gsj {
+   	margin-top : -25px;
+	width: 130px;
+	height: 130px;
+    }
+    .navlogo .nav li a{
+       background: #8CBDED;
+    }
+    .navlogo .nav li a:hover{
+       background: #8CBDED;
+       font-size : 1.2em;
+    }
+</style>
+
+<script>
+	function pro(litag) {
+		mainMenu = litag.getElementsByClassName("dropdown-toggle")[0];	//마이페이지
+		
+		menu = mainMenu.firstChild.data;	// 주메뉴
+		//alert(menu);
+		item = '<a href="#" class="list-group-item active">' + menu + '</a>';
+		
+		downClass = litag.getElementsByClassName("dropdown-menu")[0];
+		subMenu = downClass.getElementsByTagName('a');	// downClass안에 subMenu 3개
+		
+		for(i = 0; i < subMenu.length; i++) {
+			item += '<a href="#" class="list-group-item" target="#">' + subMenu[i].textContent + '</a>';
+		}
+		
+		listGroup = document.getElementsByClassName("list-group")[0];
+		listGroup.innerHTML = item;	// item내에 태그가 포함되어있어서 innerHTML
+	}
+</script>
+
+<nav class="navlogo">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">
+         <img id="gsj" src="../images/java.png">
+      </a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> 로그인</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon glyphicon-user"></span> 회원가입</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+   <div class="navbar-header">
+         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+           <span class="icon-bar"></span>
+           <span class="icon-bar"></span>
+           <span class="icon-bar"></span>                        
+         </button>
+   </div>
+    <div class="collapse navbar-collapse navbar-right" id="myNavbar">
+      <ul class="nav navbar-nav">
+      
+        <li class="dropdown" onclick="pro(this)">
+          <a class="dropdown-toggle" data-toggle="dropdown">마이페이지
+          <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="#">HTML</a></li>
+            <li><a href="#">CSS</a></li>
+            <li><a href="#">JavaScript</a></li>
+          </ul>
+      </li>
+      
+      <li class="dropdown" onclick="pro(this)">
+          <a class="dropdown-toggle" data-toggle="dropdown">게시판
+          <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="#">공지게시판</a></li>
+            <li><a href="#">Q&A게시판</a></li>
+            <li><a href="#">게시판</a></li>
+          </ul>
+      </li>
+      
+      <li class="dropdown" onclick="pro(this)">
+          <a class="dropdown-toggle" data-toggle="dropdown">이벤트
+          <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="#">할인율</a></li>
+            <li><a href="#">진행중인이벤트</a></li>
+            <li><a href="#">1+1</a></li>
+          </ul>
+      </li>
+      
+      </ul>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+img {
+	width: 100px;
+	height: 100px;
+}
+</style>
+<script>
+	imgrand = null;
+	btnStop = null;
+
+	function start() {
+		if (imgrand != null) {
+			imgrand.style.border = "";
+		}
+
+		// start버튼을 비활성화 - disabled
+		// 이벤트 대상을 얻는다
+		btnStart = event.target;
+		btnStart.setAttribute("disabled", true);
+
+		if (btnStop != null) {
+			btnStop.removeAttribute("disabled");
+		}
+
+		a = setInterval(function() {
+
+			// id가 d1인 요소로 접근한다.
+			parent = document.getElementById("d1");
+			// 태그이름이 img인 요소의 0번째에 접근한다.
+			child = parent.children[0];
+			/* child = document.getElementsByTagName("img")[0] */
+
+			// parent요소에서 child요소를 제거한다.
+			parent.removeChild(child);
+
+			// 제거한 요소를 parent요소에 추가한다.
+			parent.appendChild(child);
+
+		}, 100)
+
+	}
+
+	function stop() {
+		clearInterval(a);
+
+		// stop 메소드를 실행시키는 이벤트 대상얻기
+		btnStop = event.target;
+		btnStop.setAttribute("disabled", true);
+
+		imgsu = document.getElementsByTagName("img");
+		// 랜덤 0~이미지의 갯수
+		rand = Math.floor(Math.random() * imgsu.length);
+
+		imgrand = imgsu[rand];
+		imgrand.style.border = "10px solid blue";
+
+		// start버튼을 활성화
+		btnStart.removeAttribute("disabled"); /* disabled속성을 삭제 */
+		//btnStart.setAttribute("disabled", false);
+	}
+</script>
+</head>
+<body>
+	<h1>진행중인 이벤트</h1>
+	<h2>100% 당첨</h2>
+	<br>
+	<br>
+	<div id="d1">
+		<!-- parent -->
+		<img src="../images/always9.jpg">
+		<!-- "d1"의 0번째 -->
+		<img src="../images/americano.jpg"> <img
+			src="../images/bike.jpg"> <img src="../images/cafelatte.jpg">
+		<img src="../images/nikeshoes2.jpg"> <img
+			src="../images/soccer.jpg">
+	</div>
+	<br>
+	<br>
+	<p>환영합니다. start버튼을 눌러주세요! 당신에게 행운을 드립니다.</p>
+	<button id="start" type="button" onclick="start()">시작</button>
+	<button id="stop" type="button" onclick="stop()">종료</button>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	img {
+		width:200px;
+	}
+	div {
+		width : 200px;
+		height : 100px;
+		padding : 10px;
+		border : 1px dotted blue;
+	}
+</style>
+
+<script>
+	function readFile() {
+		// id가 file인 곳으로 접근 .파일목록을 가져온다. 
+		// java에서는 File file 이런식으로 타입 써줘야하는데 script에서는 타입 안써줘도됨.
+		// File객체로 리턴한다
+		file = document.getElementById("file").files[0];
+		
+		res = "파일명 : " + file.name + "<br>";
+		res += "파일크기 : " + file.size + "<br>";
+		res += "파일형식 : " + file.type + "<br>";
+		res += "최종 수정날짜 : " + file.lastModifyDate + "<br>";
+		
+		document.getElementById("info").innerHTML = res;
+		
+		reader = new FileReader();
+		
+		//reader.readAsText(file, "UTF-8");
+		reader.readAsDataURL(file);
+		
+		reader.onload = function() {
+			content = document.getElementById('content');
+			image = document.getElementById("imgview");
+			content.value = reader.result;
+			
+			// 읽은 파일에 image가 포함되어있으면 display를 block로 출력 -> 현재 none으로 잡아놓음
+			if(reader.result.match("image")) {
+				image.src = reader.result;
+				image.style.display = "block";
+			} else {
+				image.style.display = "none";
+			}
+		}
+	
+		
+	}
+</script>
+
+</head>
+<body>
+	File객체 : 파일의 기본적인 정보를 얻는다.
+			- 파일명(filename), 파일크기(size), <br>
+			- 파일종류(type), 변경날짜(lastModifyDate) <br>
+	
+	FileReader객체 : 파일의 내용을 읽을 수 있는 기능을 제공한다. <br>
+	
+	메소드 :
+			- readAsText(file객체, "인코딩") : 파일을 읽어서 text로 변환, 인코딩은 기본적으로 UTF-16 
+			- readAsDataUrl : (file객체) : 파일을 읽어서 dataurl형식의 문자열로 반환한다.
+			
+	속성 :
+			- result : 읽어온 파일의 내용이 저장되어 있다.	<br>
+			- error : 오류가 발생 했을때 오류정보가 저장되어 있다. <br>
+	<br><br>
+	<h1>HTML5 File API</h1>
+	<br>
+	<input type="file" id="file">	<!-- 파일선택 버튼 -->
+	<input type="button" value="읽기" onclick="readFile()">	
+	<!-- input type으로 하는애들은 값을 가져올때 value로 불러옴 -->
+	<!-- h나p태그나 그런식으로 감싸는애들은 textContent, innerHTML로 읽어옴 -->
+	<br><br>
+	결과출력<br>
+	<textarea id="content" rows="10" cols="50"></textarea>
+	
+	<br><br>
+	<h2>파일정보</h2>
+	이미지 파일을 읽은경우에 이미지가 표시된다.	<br>
+	다른 형식의 파일을 읽었을경우 이미지가 표시되지 않는다. <br>
+	<img id="imgview" src="../images/java.png" style="display:none">
+	<div id="info"></div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

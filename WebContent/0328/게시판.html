@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+form {
+	border: 1px solid black;
+	margin: 10px;
+	padding: 10px;
+}
+
+h1 {
+	text-align: center;
+}
+
+label {
+	display : inline-block;
+	width : 70px;
+	height: 30px;
+}
+
+table {
+	border-collapse : collapse;
+	display : none;
+	width : 1ppppx;
+}
+
+#blist th {
+	width : 200px;
+	
+}
+
+.cont {
+	display : none;
+}
+
+</style>
+
+<script>
+	function view(clicktr) {
+		f = document.board;
+		// table에서 내용을 가져다가 입력 폼에 다시 출력한다.
+		// 매개변수 clicktr은 클릭한 tr을 받은 변수z
+		tdlist = clicktr.getElementsByTagName('td');
+		f.num.value = tdlist[0].textContent;
+		
+		f.writer.value = tdlist[1].textContent;
+		f.title.value = tdlist[2].textContent;
+		//f.content.value = cvalue;
+		// td를 별도로 만들었을 경우
+		f.content.value = tdlist[5].textContent;
+		
+		// 3번째 td의 날짜 속에 input type="hidden" 으로 했을경우
+		// f.content.value = clicktr.getElementsByClassName('cont')[0].value
+		
+		// 4번째 td를 별도로 만들고 class이름을 cont로 했을경우
+		// f.content.value = clicktr.getElementsByClassName('cont')[0].textContent
+	}
+	
+	num = 1;
+	function proc1() {
+		f = document.board;
+		// 입력한 값을 가져온다.
+		wvalue = f.writer.value;
+		if(wvalue.trim().length == 0) {
+			alert("작성자 입력");
+			f.writer.focus();
+			return;
+		}
+		tvalue = f.title.value;
+		if(tvalue.trim().length == 0) {
+			alert("제목 입력");
+			f.title.focus();
+			return;
+		}
+		cvalue = f.content.value;
+		if(cvalue.trim().length == 0) {
+			alert("내용 입력");
+			f.content.focus();
+			return;
+		}
+		
+		content10 = cvalue;
+		if(cvalue.length > 10) {
+			content10 = cvalue.substr(0,10) + ".....";//substr(0,10) 0부터 10개 // cvalue.substring(0,10) -> 범위(0~10앞까지)
+		}
+		
+		
+		today = new Date();
+		datevalue = today.toLocaleDateString();
+		
+		// tr태그를 생성한다. - createElement()
+		newtr = document.createElement('tr');
+		newtr.setAttribute("onclick", "view(this)");	// onclick 이벤트 설정
+										// view()함수를 호출하고 매개변수로 this를 반환한다.
+		
+		// td에 입력한 값으로 설정한다.
+		
+		tdtag = "<td>" + num + "</td>";
+		tdtag += "<td>" + wvalue + "</td>";
+		tdtag += "<td>" + tvalue + "</td>";
+		tdtag += "<td>" + content10 + "</td>";
+		tdtag += "<td>" + datevalue + "</td>"; 
+		tdtag += "<td class='cont'>" + cvalue + "</td>";	
+		num++;
+		
+		// newtr에 tdtag값을 출력한다.
+		newtr.innerHTML = tdtag;
+		
+		
+		// tr을 tbody에 추가 -appendChild()
+		ttbody = document.getElementById("bodytr");
+		ttbody.appendChild(newtr);
+		
+		// blist테이블의 속성으로 보여지게
+		document.getElementById('blist').style.display = 'block';
+		
+		f.writer.value = "";
+		f.title.value = "";
+		f.content.value="";
+		f.writer.focus();
+	}
+	
+	function modify() {
+		
+		// 새롭게 수정한 내용을 가져온다. - value
+		// hidden으로 되어있는 num도 같이 가져온다 - value
+		numvalue = f.num.value;
+		wvalue = f.writer.value;
+		tvalue = f.title.value;
+		cvalue = f.content.value;
+		
+		content10 = cvalue;
+		if(cvalue.length > 10) {
+			content10 = cvalue.substr(0,10) + ".....";//substr(0,10) 0부터 10개 // cvalue.substring(0,10) -> 범위(0~10앞까지)
+		}
+		
+		today = new Date();
+		datevalue = today.toLocaleDateString();
+		
+		// numvalue 와 table의 번호와 같은 행의 내용을 수정한다.
+		
+		trtag = document.getElementsByTagName('tr')[numvalue];
+		trtag.getElementsByTagName('td')[1].textContent = wvalue;
+		trtag.getElementsByTagName('td')[2].textContent = tvalue;
+		trtag.getElementsByTagName('td')[3].textContent = content10;
+		trtag.getElementsByTagName('td')[4].textContent = datevalue;
+		trtag.getElementsByTagName('td')[5].textContent = cvalue;
+		
+		f.writer.value = "";
+		f.title.value = "";
+		f.content.value="";
+		f.writer.focus();
+	}
+	</script>
+</head>
+<body>
+저장 버튼을 클릭하면 입력한값을 가지고 form밑으로 <br>
+table의 display 속성을 block으로 지정하고<br>
+보여지게 하고 저장버튼을 클릭 할때마다 tr, td태그를 생성해서
+tbody에 추가한다.
+	<form action="aa.jsp" method="post" name="board">
+		<h1>게시판</h1>
+		<div>
+			<label for="writer">작성자 </label> 
+			<input type="text" id="writer" name="writer"><br>
+			<input type="hidden" name="num">
+		</div>
+
+		<div>
+			<label for="title">제&nbsp;&nbsp;&nbsp;목</label> 
+			<input type="text" id="title" name="title"><br>
+		</div>
+
+		<div>
+			<label for="content">내용</label><br>
+			<textarea rows="20" cols="80" id="content" name="content"></textarea>
+		</div>
+
+		<input type="button" value="저장" onclick="proc1()">
+		<input type="reset" value="취소">
+		<input type="button" value="수정" onclick="modify()">
+	</form>
+	<br><br>
+	<hr color="blue">
+	<table id="blist" border="1">
+		<thead>
+			<tr>
+				<th>번호</th>
+				<th>작성자</th>
+				<th>제목</th>
+				<th>내용</th>
+				<th>날짜</th>
+			</tr>
+		</thead>
+		
+		<tbody id="bodytr">
+		</tbody>
+	</table> 
+	
+</body>
+</html>
